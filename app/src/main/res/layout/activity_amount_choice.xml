@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F4F4F4"
+            android:orientation="vertical"
+            tools:context=".ui.activity.AmountChoiceActivity">
+
+            <com.ruffian.library.widget.RConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sw_15dp"
+                android:layout_marginTop="@dimen/sw_15dp"
+                android:paddingBottom="@dimen/sw_20dp"
+                android:layout_marginEnd="@dimen/sw_15dp"
+                app:background_normal="@color/white"
+                app:corner_radius="@dimen/sw_4dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/mMonDelPreTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sw_15dp"
+                    android:layout_marginTop="@dimen/sw_13dp"
+                    android:text="Monto del préstamo"
+                    android:textColor="#ff2d2d2d"
+                    android:textSize="@dimen/sw_16sp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.ruffian.library.widget.RLinearLayout
+                    android:id="@+id/mSelectPriceLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sw_15dp"
+                    android:layout_marginTop="@dimen/sw_13dp"
+                    android:minWidth="@dimen/sw_154dp"
+                    app:border_color_normal="#F98D4F"
+                    app:border_width_normal="@dimen/sw_1dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mMonDelPreTextView">
+
+                    <TextView
+                        android:id="@+id/mMoneyTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_12dp"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/sw_6dp"
+                        android:paddingBottom="@dimen/sw_6dp"
+                        android:text="$10,000"
+                        android:textColor="#fff98d4f"
+                        android:textSize="@dimen/sw_19sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/sw_6dp"
+                        android:src="@mipmap/ic_100_quan" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/sw_10dp"
+                        android:src="@mipmap/ic_bottom_arrow" />
+                </com.ruffian.library.widget.RLinearLayout>
+
+                <com.ruffian.library.widget.RTextView
+                    android:id="@+id/mProPreRTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sw_15dp"
+                    android:layout_marginTop="@dimen/sw_32dp"
+                    android:paddingStart="@dimen/sw_6dp"
+                    android:paddingEnd="@dimen/sw_6dp"
+                    android:text="Próximo préstamo\nObtener cupón"
+                    android:textColor="#fff98d4f"
+                    android:textSize="@dimen/sw_10sp"
+                    app:background_normal="#FBF2ED"
+                    app:corner_radius="@dimen/sw_3dp"
+                    app:layout_constraintLeft_toRightOf="@+id/mSelectPriceLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/mMonDelPreTextView" />
+
+
+                <View
+                    android:id="@+id/mBaseOnePointView"
+                    android:layout_width="1px"
+                    android:layout_height="1px"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/mBaseTwoPointView"
+                    app:layout_constraintTop_toBottomOf="@+id/mProPreRTextView" />
+
+                <View
+                    android:id="@+id/mBaseTwoPointView"
+                    android:layout_width="1px"
+                    android:layout_height="1px"
+                    app:layout_constraintLeft_toRightOf="@+id/mBaseOnePointView"
+                    app:layout_constraintRight_toLeftOf="@+id/mBaseThreePointView"
+                    app:layout_constraintTop_toBottomOf="@+id/mProPreRTextView" />
+
+                <View
+                    android:id="@+id/mBaseThreePointView"
+                    android:layout_width="1px"
+                    android:layout_height="1px"
+                    app:layout_constraintLeft_toRightOf="@+id/mBaseTwoPointView"
+                    app:layout_constraintRight_toLeftOf="@+id/mBaseFourPointView"
+                    app:layout_constraintTop_toBottomOf="@+id/mProPreRTextView" />
+
+                <View
+                    android:id="@+id/mBaseFourPointView"
+                    android:layout_width="1px"
+                    android:layout_height="1px"
+                    app:layout_constraintLeft_toRightOf="@+id/mBaseThreePointView"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mProPreRTextView" />
+
+                <View
+                    android:id="@+id/mProgressOneView"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/sw_7dp"
+                    android:layout_marginStart="@dimen/sw_15dp"
+                    android:layout_marginTop="@dimen/sw_20dp"
+                    android:background="#F98D4F"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="@+id/mBaseOnePointView"
+                    app:layout_constraintRight_toLeftOf="@+id/mProgressTwoView"
+                    app:layout_constraintTop_toBottomOf="@+id/mBaseTwoPointView" />
+
+                <View
+                    android:id="@+id/mProgressTwoView"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/sw_7dp"
+                    android:layout_marginTop="@dimen/sw_20dp"
+                    android:background="#F98D4F"
+                    android:visibility="gone"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toRightOf="@+id/mProgressOneView"
+                    app:layout_constraintRight_toLeftOf="@+id/mProgressThreeView"
+                    app:layout_constraintTop_toBottomOf="@+id/mBaseTwoPointView" />
+
+                <View
+                    android:id="@+id/mProgressThreeView"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/sw_7dp"
+                    android:layout_marginTop="@dimen/sw_20dp"
+                    android:background="#F98D4F"
+                    app:layout_constraintLeft_toRightOf="@+id/mProgressTwoView"
+                    app:layout_constraintRight_toLeftOf="@+id/mProgressIndView"
+                    app:layout_constraintTop_toBottomOf="@+id/mBaseTwoPointView" />
+
+                <com.ruffian.library.widget.RView
+                    android:id="@+id/mProgressIndView"
+                    android:layout_width="@dimen/sw_8dp"
+                    android:layout_height="@dimen/sw_15dp"
+                    app:background_normal="#F98D4F"
+                    app:corner_radius="@dimen/sw_3dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/mProgressOneView"
+                    app:layout_constraintLeft_toRightOf="@+id/mProgressThreeView"
+                    app:layout_constraintRight_toLeftOf="@+id/mProgressFourView"
+                    app:layout_constraintTop_toTopOf="@+id/mProgressOneView" />
+
+                <View
+                    android:id="@+id/mProgressFourView"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/sw_7dp"
+                    android:layout_marginTop="@dimen/sw_20dp"
+                    android:background="#F98D4F"
+                    android:visibility="invisible"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toRightOf="@+id/mProgressIndView"
+                    app:layout_constraintRight_toLeftOf="@+id/mProgressFiveView"
+                    app:layout_constraintTop_toBottomOf="@+id/mBaseTwoPointView" />
+
+                <View
+                    android:id="@+id/mProgressFiveView"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/sw_7dp"
+                    android:layout_marginTop="@dimen/sw_20dp"
+                    android:layout_marginEnd="@dimen/sw_35dp"
+                    android:background="#F98D4F"
+                    android:visibility="invisible"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toRightOf="@+id/mProgressFourView"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mBaseTwoPointView" />
+
+                <TextView
+                    android:id="@+id/mFirstPriceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sw_15dp"
+                    android:layout_marginTop="@dimen/sw_10dp"
+                    android:text="$1,000"
+                    android:textColor="#ff2d2d2d"
+                    android:textSize="@dimen/sw_14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mProgressIndView" />
+
+                <TextView
+                    android:id="@+id/mSecondPriceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_10dp"
+                    android:text="$5,000"
+                    android:textColor="#ff2d2d2d"
+                    android:textSize="@dimen/sw_14sp"
+                    app:layout_constraintLeft_toLeftOf="@id/mBaseTwoPointView"
+                    app:layout_constraintRight_toRightOf="@+id/mBaseTwoPointView"
+                    app:layout_constraintTop_toBottomOf="@+id/mProgressIndView" />
+
+                <TextView
+                    android:id="@+id/mThirdPriceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_10dp"
+                    android:text="$10,000"
+                    android:textColor="#ff2d2d2d"
+                    android:textSize="@dimen/sw_14sp"
+                    app:layout_constraintLeft_toLeftOf="@id/mBaseThreePointView"
+                    app:layout_constraintRight_toRightOf="@+id/mBaseThreePointView"
+                    app:layout_constraintTop_toBottomOf="@+id/mProgressIndView" />
+
+
+                <TextView
+                    android:id="@+id/mFourPriceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_10dp"
+                    android:layout_marginEnd="@dimen/sw_15dp"
+                    android:text="$50,000"
+                    android:textColor="#ff2d2d2d"
+                    android:textSize="@dimen/sw_14sp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mProgressIndView" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_6dp"
+                    android:text="Préstamo\nactual"
+                    android:textColor="#ff2d2d2d"
+                    android:textSize="@dimen/sw_11sp"
+                    app:layout_constraintLeft_toLeftOf="@+id/mSecondPriceTextView"
+                    app:layout_constraintRight_toRightOf="@+id/mSecondPriceTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/mSecondPriceTextView" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_6dp"
+                    android:text="Próximo\npréstamo"
+                    android:textColor="#ff2d2d2d"
+                    android:textSize="@dimen/sw_11sp"
+                    app:layout_constraintLeft_toLeftOf="@+id/mThirdPriceTextView"
+                    app:layout_constraintRight_toRightOf="@+id/mThirdPriceTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/mThirdPriceTextView" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_6dp"
+                    android:text="Más\nsubpréstamos"
+                    android:textColor="#ff2d2d2d"
+                    android:textSize="@dimen/sw_11sp"
+                    app:layout_constraintLeft_toLeftOf="@+id/mFourPriceTextView"
+                    app:layout_constraintRight_toRightOf="@+id/mFourPriceTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/mFourPriceTextView" />
+
+                <FrameLayout
+                    android:id="@+id/mHongBaoLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/mProgressOneView"
+                    app:layout_constraintLeft_toLeftOf="@+id/mBaseThreePointView"
+                    app:layout_constraintRight_toRightOf="@+id/mBaseThreePointView"
+                    app:layout_constraintTop_toTopOf="@+id/mProgressOneView">
+
+                    <ImageView
+                        android:layout_width="@dimen/sw_26dp"
+                        android:layout_height="@dimen/sw_29dp"
+                        android:src="@mipmap/ic_hong_bao_bg" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_marginBottom="@dimen/sw_3dp"
+                        android:shadowColor="#7ae84045"
+                        android:text="$100"
+                        android:textColor="#fffef173"
+                        android:textSize="@dimen/sw_8sp" />
+                </FrameLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/sw_11dp"
+                    android:layout_height="@dimen/sw_11dp"
+                    android:layout_marginTop="@dimen/_sw_5dp"
+                    android:layout_marginEnd="@dimen/_sw_5dp"
+                    android:src="@mipmap/ic_gray_lock"
+                    app:layout_constraintRight_toRightOf="@+id/mHongBaoLayout"
+                    app:layout_constraintTop_toTopOf="@+id/mHongBaoLayout" />
+
+                <ImageView
+                    android:layout_width="@dimen/sw_16dp"
+                    android:layout_height="@dimen/sw_16dp"
+                    android:layout_marginEnd="@dimen/sw_35dp"
+                    android:src="@mipmap/ic_gray_lock"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/mProgressOneView"
+                    app:layout_constraintTop_toTopOf="@+id/mProgressOneView" />
+            </com.ruffian.library.widget.RConstraintLayout>
+
+            <com.ruffian.library.widget.RConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sw_15dp"
+                android:layout_marginTop="@dimen/sw_13dp"
+                android:layout_marginEnd="@dimen/sw_15dp"
+                android:paddingBottom="@dimen/sw_17dp"
+                app:background_normal="@color/white"
+                app:corner_radius="@dimen/sw_4dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/mFecDeReeTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_13dp"
+                    android:layout_marginEnd="@dimen/sw_15dp"
+                    android:layout_marginStart="@dimen/sw_15dp"
+                    android:text="Fecha de reembolso"
+                    android:textColor="#ff2d2d2d"
+                    android:textSize="@dimen/sw_16sp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.ruffian.library.widget.RTextView
+                    android:id="@+id/mProPreTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_13dp"
+                    android:layout_marginEnd="@dimen/sw_13dp"
+                    android:paddingStart="@dimen/sw_4dp"
+                    android:paddingTop="@dimen/sw_2dp"
+                    android:paddingEnd="@dimen/sw_4dp"
+                    android:paddingBottom="@dimen/sw_2dp"
+                    android:text="Próximo préstamo"
+                    android:textColor="#ff2d2d2d"
+                    android:textSize="@dimen/sw_10sp"
+                    app:background_normal="#EFEFEF"
+                    app:corner_radius="@dimen/sw_3dp"
+                    app:layout_constraintRight_toLeftOf="@+id/mProPreOneTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/mFecDeReeTextView" />
+
+                <com.ruffian.library.widget.RTextView
+                    android:id="@+id/mProPreOneTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_13dp"
+                    android:layout_marginEnd="@dimen/sw_15dp"
+                    android:paddingStart="@dimen/sw_4dp"
+                    android:paddingTop="@dimen/sw_2dp"
+                    android:paddingEnd="@dimen/sw_4dp"
+                    android:paddingBottom="@dimen/sw_2dp"
+                    android:text="Próximo préstamo1"
+                    android:textColor="#ff2d2d2d"
+                    android:textSize="@dimen/sw_10sp"
+                    app:background_normal="#EFEFEF"
+                    app:corner_radius="@dimen/sw_3dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mFecDeReeTextView" />
+
+                <com.ruffian.library.widget.RTextView
+                    android:id="@+id/mDayOneTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sw_15dp"
+                    android:layout_marginTop="@dimen/sw_38dp"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/sw_8dp"
+                    android:paddingBottom="@dimen/sw_8dp"
+                    android:text="17-01-2011"
+                    android:textColor="#ffffffff"
+                    android:textSize="@dimen/sw_14sp"
+                    app:background_normal="#EFEFEF"
+                    app:background_selected="#F98D4F"
+                    app:corner_radius="@dimen/sw_5dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/mDayTwoTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/mFecDeReeTextView"
+                    app:text_color_normal="#2D2D2D"
+                    app:text_color_selected="@color/white" />
+
+                <com.ruffian.library.widget.RTextView
+                    android:id="@+id/mDayTwoTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sw_7dp"
+                    android:layout_marginTop="@dimen/sw_38dp"
+                    android:layout_marginRight="@dimen/sw_7dp"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/sw_8dp"
+                    android:paddingBottom="@dimen/sw_8dp"
+                    android:text="17-01-2011"
+                    android:textColor="#ffffffff"
+                    android:textSize="@dimen/sw_14sp"
+                    app:background_normal="#EFEFEF"
+                    app:background_selected="#F98D4F"
+                    app:corner_radius="@dimen/sw_5dp"
+                    app:layout_constraintLeft_toRightOf="@+id/mDayOneTextView"
+                    app:layout_constraintRight_toLeftOf="@+id/mDayThreeTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/mFecDeReeTextView"
+                    app:text_color_normal="#2D2D2D"
+                    app:text_color_selected="@color/white" />
+
+                <ImageView
+                    android:layout_width="@dimen/sw_19dp"
+                    android:layout_height="@dimen/sw_19dp"
+                    android:layout_marginEnd="@dimen/sw_3dp"
+                    android:src="@mipmap/ic_lock"
+                    app:layout_constraintRight_toLeftOf="@+id/mDayThreeTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/mProPreTextView" />
+
+                <com.ruffian.library.widget.RTextView
+                    android:id="@+id/mDayThreeTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_38dp"
+                    android:layout_marginEnd="@dimen/sw_15dp"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/sw_8dp"
+                    android:paddingBottom="@dimen/sw_8dp"
+                    android:text="17-01-2011"
+                    android:textColor="#ffffffff"
+                    android:textSize="@dimen/sw_14sp"
+                    app:background_normal="#EFEFEF"
+                    app:background_selected="#F98D4F"
+                    app:corner_radius="@dimen/sw_5dp"
+                    app:layout_constraintLeft_toRightOf="@+id/mDayTwoTextView"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mFecDeReeTextView"
+                    app:text_color_normal="#2D2D2D"
+                    app:text_color_selected="@color/white" />
+
+                <ImageView
+                    android:layout_width="@dimen/sw_19dp"
+                    android:layout_height="@dimen/sw_19dp"
+                    android:layout_marginEnd="@dimen/sw_10dp"
+                    android:src="@mipmap/ic_lock"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mProPreOneTextView" />
+
+                <TextView
+                    android:id="@+id/mDesTArTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sw_15dp"
+                    android:layout_marginTop="@dimen/sw_16dp"
+                    android:text="Desembolsar&amp;Tarifa"
+                    android:textColor="#ff2d2d2d"
+                    android:textSize="@dimen/sw_16sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mDayOneTextView" />
+
+                <com.ruffian.library.widget.RConstraintLayout
+                    android:id="@+id/mSecondLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sw_15dp"
+                    android:layout_marginTop="@dimen/sw_6dp"
+                    android:layout_marginEnd="@dimen/sw_15dp"
+                    android:paddingBottom="@dimen/sw_10dp"
+                    app:border_color_normal="#D9D9D9"
+                    app:border_width_normal="1px"
+                    app:corner_radius="@dimen/sw_7dp"
+                    app:layout_constraintTop_toBottomOf="@+id/mDesTArTextView">
+
+                    <TextView
+                        android:id="@+id/mCantRecTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_14dp"
+                        android:layout_marginTop="@dimen/sw_10dp"
+                        android:text="Cantidad a recibir"
+                        android:textColor="#fff98d4f"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/mCantRecPriceTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/sw_14dp"
+                        android:gravity="end"
+                        android:text="$100.00"
+                        android:textColor="#fff98d4f"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/mCantRecTextView"
+                        app:layout_constraintLeft_toRightOf="@+id/mCantRecTextView"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/mCantRecTextView" />
+
+                    <View
+                        android:id="@+id/mLineView_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="@dimen/sw_9dp"
+                        android:background="#E0E0E0"
+                        app:layout_constraintTop_toBottomOf="@+id/mCantRecTextView" />
+
+                    <TextView
+                        android:id="@+id/mRegTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_14dp"
+                        android:layout_marginTop="@dimen/sw_8dp"
+                        android:text="Interés"
+                        android:textColor="#2D2D2D"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mLineView_1" />
+
+                    <TextView
+                        android:id="@+id/mRegPriceTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/sw_14dp"
+                        android:gravity="end"
+                        android:text="$100.00"
+                        android:textColor="#2D2D2D"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/mRegTextView"
+                        app:layout_constraintLeft_toRightOf="@+id/mRegTextView"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/mRegTextView" />
+
+                    <View
+                        android:id="@+id/mLineView_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="@dimen/sw_9dp"
+                        android:background="#E0E0E0"
+                        app:layout_constraintTop_toBottomOf="@+id/mRegTextView" />
+
+                    <TextView
+                        android:id="@+id/mCarPorSerTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_14dp"
+                        android:layout_marginTop="@dimen/sw_8dp"
+                        android:text="Cargo por servicios"
+                        android:textColor="#2D2D2D"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mLineView_2" />
+
+                    <TextView
+                        android:id="@+id/mCarPorSerPriceTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/sw_14dp"
+                        android:gravity="end"
+                        android:text="$100.00"
+                        android:textColor="#2D2D2D"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/mCarPorSerTextView"
+                        app:layout_constraintLeft_toRightOf="@+id/mCarPorSerTextView"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/mCarPorSerTextView" />
+
+                    <View
+                        android:id="@+id/mLineView_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="@dimen/sw_9dp"
+                        android:background="#E0E0E0"
+                        app:layout_constraintTop_toBottomOf="@+id/mCarPorSerTextView" />
+
+                    <TextView
+                        android:id="@+id/mIvaSerTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_14dp"
+                        android:layout_marginTop="@dimen/sw_8dp"
+                        android:text="Iva"
+                        android:textColor="#2D2D2D"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mLineView_3" />
+
+                    <TextView
+                        android:id="@+id/mIvaPriceTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/sw_14dp"
+                        android:gravity="end"
+                        android:text="$100.00"
+                        android:textColor="#2D2D2D"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/mIvaSerTextView"
+                        app:layout_constraintLeft_toRightOf="@+id/mIvaSerTextView"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/mIvaSerTextView" />
+
+                    <View
+                        android:id="@+id/mLineView_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="@dimen/sw_9dp"
+                        android:background="#E0E0E0"
+                        app:layout_constraintTop_toBottomOf="@+id/mIvaSerTextView" />
+
+                    <TextView
+                        android:id="@+id/mCarPorDeSerTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_14dp"
+                        android:layout_marginTop="@dimen/sw_8dp"
+                        android:text="Cargo por servicios de\ntransferencia\n(Cobrado por el Banco)"
+                        android:textColor="#2D2D2D"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mLineView_4" />
+
+                    <TextView
+                        android:id="@+id/mCarPorDericeTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/sw_14dp"
+                        android:gravity="end"
+                        android:text="$100.00"
+                        android:textColor="#2D2D2D"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintLeft_toRightOf="@+id/mCarPorDeSerTextView"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/mCarPorDeSerTextView" />
+
+                    <View
+                        android:id="@+id/mLineView_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="@dimen/sw_9dp"
+                        android:background="#E0E0E0"
+                        app:layout_constraintTop_toBottomOf="@+id/mCarPorDeSerTextView" />
+
+                    <TextView
+                        android:id="@+id/mMonDePreSerTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_14dp"
+                        android:layout_marginTop="@dimen/sw_8dp"
+                        android:text="Monto de préstamo"
+                        android:textColor="#F98D4F"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mLineView_5" />
+
+                    <TextView
+                        android:id="@+id/mMonDePrePriceTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/sw_14dp"
+                        android:gravity="end"
+                        android:text="$100.00"
+                        android:textColor="#F98D4F"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/mMonDePreSerTextView"
+                        app:layout_constraintLeft_toRightOf="@+id/mMonDePreSerTextView"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/mMonDePreSerTextView" />
+                </com.ruffian.library.widget.RConstraintLayout>
+
+                <TextView
+                    android:id="@+id/mProDeReeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sw_15dp"
+                    android:layout_marginTop="@dimen/sw_16dp"
+                    android:text="Programa de reembolso"
+                    android:textColor="#ff2d2d2d"
+                    android:textSize="@dimen/sw_16sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mSecondLayout" />
+
+                <com.ruffian.library.widget.RConstraintLayout
+                    android:id="@+id/mThirdLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sw_15dp"
+                    android:layout_marginTop="@dimen/sw_6dp"
+                    android:layout_marginEnd="@dimen/sw_15dp"
+                    android:paddingBottom="@dimen/sw_10dp"
+                    app:border_color_normal="#D9D9D9"
+                    app:border_width_normal="1px"
+                    app:corner_radius="@dimen/sw_7dp"
+                    app:layout_constraintTop_toBottomOf="@+id/mProDeReeTextView">
+
+                    <TextView
+                        android:id="@+id/mFecTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_14dp"
+                        android:layout_marginTop="@dimen/sw_10dp"
+                        android:text="Fecha de pago de tu\ncrédito"
+                        android:textColor="#2D2D2D"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/mFecDayTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/sw_14dp"
+                        android:gravity="end"
+                        android:text="17-01-2022"
+                        android:textColor="#2D2D2D"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintLeft_toRightOf="@+id/mFecTextView"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/mFecTextView" />
+
+                    <View
+                        android:id="@+id/mLineView_11"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="@dimen/sw_9dp"
+                        android:background="#E0E0E0"
+                        app:layout_constraintTop_toBottomOf="@+id/mFecTextView" />
+
+                    <TextView
+                        android:id="@+id/mMonDeDeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_14dp"
+                        android:layout_marginTop="@dimen/sw_8dp"
+                        android:text="Monto de devolución"
+                        android:textColor="#2D2D2D"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mLineView_11" />
+
+                    <TextView
+                        android:id="@+id/mMonDeDePriceTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/sw_14dp"
+                        android:gravity="end"
+                        android:text="$100.00"
+                        android:textColor="#2D2D2D"
+                        android:textSize="@dimen/sw_15sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/mMonDeDeTextView"
+                        app:layout_constraintLeft_toRightOf="@+id/mMonDeDeTextView"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/mMonDeDeTextView" />
+
+                </com.ruffian.library.widget.RConstraintLayout>
+
+            </com.ruffian.library.widget.RConstraintLayout>
+
+            <com.ruffian.library.widget.RTextView
+                android:id="@+id/mConfTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sw_23dp"
+                android:layout_marginTop="@dimen/sw_36dp"
+                android:layout_marginEnd="@dimen/sw_23dp"
+                android:layout_marginBottom="@dimen/sw_34dp"
+                android:gravity="center"
+                android:paddingTop="@dimen/sw_14dp"
+                android:paddingBottom="@dimen/sw_14dp"
+                android:text="Confirmar"
+                android:textColor="#ffffffff"
+                android:textSize="@dimen/sw_15sp"
+                app:background_normal="#80F98D4F"
+                app:background_selected="#F98D4F"
+                app:corner_radius="@dimen/sw_50dp"
+                app:layout_constraintTop_toBottomOf="@+id/mSecondLayout" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

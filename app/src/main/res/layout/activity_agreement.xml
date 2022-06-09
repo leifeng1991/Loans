@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.activity.AgreementActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/sw_28dp"
+            android:drawablePadding="@dimen/sw_14dp"
+            android:text="Please read all the Notices of Privacy carefully."
+            android:textColor="#ff2d2d2d"
+            android:textSize="@dimen/sw_12sp"
+            app:drawableStartCompat="@mipmap/ic_jing_shi_ti_shi"
+            app:layout_constraintBottom_toTopOf="@+id/mAcceptTextView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/mAcceptTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_15dp"
+            android:layout_marginEnd="@dimen/sw_15dp"
+            android:layout_marginBottom="@dimen/sw_12dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/sw_11dp"
+            android:paddingBottom="@dimen/sw_11dp"
+            android:text="ACEPTO Y CONTINUAR"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/sw_17sp"
+            app:background_normal="#F98D4F"
+            app:corner_radius="@dimen/sw_50dp"
+            app:layout_constraintBottom_toTopOf="@+id/mSaltTextView" />
+
+        <TextView
+            android:id="@+id/mSaltTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/sw_61dp"
+            android:text="SALTAR"
+            android:textColor="#2D2D2D"
+            android:textSize="@dimen/sw_13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

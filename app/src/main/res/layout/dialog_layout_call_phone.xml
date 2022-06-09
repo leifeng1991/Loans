@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/sw_31dp"
+        android:layout_marginBottom="@dimen/sw_13dp"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/mCloseImageView"
+            android:layout_width="@dimen/sw_21dp"
+            android:layout_height="@dimen/base_dp21"
+            android:layout_gravity="end"
+            android:src="@mipmap/ic_close" />
+
+        <com.ruffian.library.widget.RConstraintLayout
+            android:id="@+id/mCallLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_10dp"
+            android:layout_marginTop="@dimen/sw_10dp"
+            android:layout_marginEnd="@dimen/sw_10dp"
+            android:paddingTop="@dimen/sw_41dp"
+            android:paddingBottom="@dimen/sw_44dp"
+            app:background_normal="@color/white"
+            app:corner_radius="@dimen/sw_12dp">
+
+            <ImageView
+                android:id="@+id/mPhoneIconImageView"
+                android:layout_width="@dimen/sw_60dp"
+                android:layout_height="@dimen/sw_60dp"
+                android:layout_marginStart="@dimen/sw_29dp"
+                android:src="@mipmap/ic_dialog_call_phone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/mPhoneTitleTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/sw_19dp"
+                android:paddingEnd="@dimen/sw_5dp"
+                android:text="Número de teléfono"
+                android:textColor="#ff333333"
+                android:textSize="@dimen/sw_17sp"
+                app:layout_constraintLeft_toRightOf="@+id/mPhoneIconImageView"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/mPhoneIconImageView" />
+
+            <TextView
+                android:id="@+id/mPhoneTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sw_10dp"
+                android:paddingStart="@dimen/sw_19dp"
+                android:paddingEnd="@dimen/sw_5dp"
+                android:text="+54 111-111111"
+                android:textColor="#ff333333"
+                android:textSize="@dimen/sw_17sp"
+                app:layout_constraintLeft_toRightOf="@+id/mPhoneIconImageView"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mPhoneTitleTextView" />
+        </com.ruffian.library.widget.RConstraintLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F4F4F4">
+
+        <ImageView
+            android:id="@+id/mMineTopBgImageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@mipmap/ic_mine_top_bg"
+            app:layout_constraintDimensionRatio="750:352"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.ruffian.library.widget.RImageView
+            android:id="@+id/mMineIconImageView"
+            android:layout_width="@dimen/sw_55dp"
+            android:layout_height="@dimen/sw_55dp"
+            android:layout_marginStart="@dimen/sw_25dp"
+            android:layout_marginTop="@dimen/sw_56dp"
+            android:background="@color/white"
+            app:corner_radius="@dimen/sw_55dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mMineNameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_15dp"
+            android:layout_marginTop="@dimen/sw_3dp"
+            android:layout_marginEnd="@dimen/sw_25dp"
+            android:text="Ronald Lamb"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/sw_17sp"
+            app:layout_constraintLeft_toRightOf="@+id/mMineIconImageView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mMineIconImageView" />
+
+        <TextView
+            android:id="@+id/mMinePhoneTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sw_5dp"
+            android:text="+54 954-566670"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/sw_14sp"
+            app:layout_constraintLeft_toLeftOf="@+id/mMineNameTextView"
+            app:layout_constraintRight_toRightOf="@+id/mMineNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/mMineNameTextView" />
+
+        <com.ruffian.library.widget.RLinearLayout
+            android:id="@+id/mMenuLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_15dp"
+            android:layout_marginTop="@dimen/sw_20dp"
+            android:layout_marginEnd="@dimen/sw_15dp"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/sw_18dp"
+            android:paddingBottom="@dimen/sw_30dp"
+            app:background_normal="@color/white"
+            app:corner_radius="@dimen/sw_6dp"
+            app:layout_constraintTop_toBottomOf="@+id/mMineIconImageView">
+
+            <LinearLayout
+                android:id="@+id/mAjuLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/sw_27dp"
+                    android:layout_height="@dimen/sw_27dp"
+                    android:src="@mipmap/ic_mine_price_adjustment" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_8dp"
+                    android:gravity="center"
+                    android:lines="2"
+                    android:text="Ajuste"
+                    android:textColor="#ff757575"
+                    android:textSize="@dimen/sw_12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mAviDeLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/sw_27dp"
+                    android:layout_height="@dimen/sw_27dp"
+                    android:src="@mipmap/ic_mine_acuerdo_privacidad" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_8dp"
+                    android:gravity="center"
+                    android:text="Avisos de\nPrivacidad Servici"
+                    android:textColor="#ff757575"
+                    android:textSize="@dimen/sw_12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mServLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/sw_27dp"
+                    android:layout_height="@dimen/sw_27dp"
+                    android:src="@mipmap/ic_mine_service" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_8dp"
+                    android:gravity="center"
+                    android:text="Servicio al\nCliente"
+                    android:textColor="#ff757575"
+                    android:textSize="@dimen/sw_12sp" />
+            </LinearLayout>
+        </com.ruffian.library.widget.RLinearLayout>
+
+        <com.ruffian.library.widget.RFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/sw_15dp"
+            android:layout_marginTop="@dimen/sw_15dp"
+            android:layout_marginEnd="@dimen/sw_15dp"
+            android:orientation="horizontal"
+            app:background_normal="@color/white"
+            app:corner_radius="@dimen/sw_6dp"
+            app:layout_constraintDimensionRatio="345:101"
+            app:layout_constraintTop_toBottomOf="@+id/mMenuLayout">
+
+            <com.ruffian.library.widget.RImageView
+                android:id="@+id/mBannerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:corner_radius="@dimen/sw_6dp" />
+        </com.ruffian.library.widget.RFrameLayout>
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/mLogoutTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_60dp"
+            android:layout_marginEnd="@dimen/sw_60dp"
+            android:layout_marginBottom="@dimen/sw_41dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/sw_11dp"
+            android:paddingBottom="@dimen/sw_11dp"
+            android:text="Salir"
+            android:textColor="#fffdfdfd"
+            android:textSize="@dimen/sw_16sp"
+            app:background_normal="#F98D4F"
+            app:corner_radius="@dimen/sw_50dp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

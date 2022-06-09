@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/sw_31dp"
+    android:layout_marginBottom="@dimen/sw_13dp"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/mCloseImageView"
+        android:layout_width="@dimen/sw_21dp"
+        android:layout_height="@dimen/base_dp21"
+        android:layout_gravity="end"
+        android:src="@mipmap/ic_close" />
+
+    <com.ruffian.library.widget.RConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sw_10dp"
+        android:layout_marginEnd="@dimen/sw_10dp"
+        android:layout_marginStart="@dimen/sw_10dp"
+        android:paddingTop="@dimen/sw_18dp"
+        android:paddingBottom="@dimen/sw_23dp"
+        app:background_normal="@color/white"
+        app:corner_radius="@dimen/sw_12dp">
+
+        <TextView
+            android:id="@+id/mDetTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detalle"
+            android:textColor="#F98D4F"
+            android:textSize="@dimen/sw_19sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mCanReciTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_15dp"
+            android:layout_marginTop="@dimen/sw_15dp"
+            android:text="Cantidad a recibir"
+            android:textColor="#ff2d2d2d"
+            android:textSize="@dimen/sw_15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mDetTitleTextView" />
+
+        <TextView
+            android:id="@+id/mCanReciValueTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/sw_15dp"
+            android:gravity="end"
+            android:text="$300,702.00"
+            android:textColor="#ff2d2d2d"
+            android:textSize="@dimen/sw_15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/mCanReciTextView"
+            app:layout_constraintLeft_toRightOf="@+id/mCanReciTextView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mCanReciTextView" />
+
+        <View
+            android:id="@+id/mLineView"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginStart="@dimen/sw_10dp"
+            android:layout_marginTop="@dimen/sw_8dp"
+            android:layout_marginEnd="@dimen/sw_10dp"
+            android:background="#E0E0E0"
+            app:layout_constraintTop_toBottomOf="@+id/mCanReciTextView" />
+
+        <TextView
+            android:id="@+id/mMonDeDevTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_15dp"
+            android:layout_marginTop="@dimen/sw_7dp"
+            android:text="Monto de devolución"
+            android:textColor="#ff2d2d2d"
+            android:textSize="@dimen/sw_15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mLineView" />
+
+        <TextView
+            android:id="@+id/mMonDeDevValueTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/sw_15dp"
+            android:gravity="end"
+            android:text="$300,702.00"
+            android:textColor="#ff2d2d2d"
+            android:textSize="@dimen/sw_15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/mMonDeDevTextView"
+            app:layout_constraintLeft_toRightOf="@+id/mMonDeDevTextView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mMonDeDevTextView" />
+
+        <View
+            android:id="@+id/mLineView_1"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginStart="@dimen/sw_10dp"
+            android:layout_marginTop="@dimen/sw_8dp"
+            android:layout_marginEnd="@dimen/sw_10dp"
+            android:background="#E0E0E0"
+            app:layout_constraintTop_toBottomOf="@+id/mMonDeDevTextView" />
+
+        <TextView
+            android:id="@+id/mFecDePaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_15dp"
+            android:layout_marginTop="@dimen/sw_7dp"
+            android:text="Fecha de pago de tu\ncrédito"
+            android:textColor="#ff2d2d2d"
+            android:textSize="@dimen/sw_15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mLineView_1" />
+
+        <TextView
+            android:id="@+id/mFecDePaValueTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/sw_15dp"
+            android:gravity="end"
+            android:text="$300,702.00"
+            android:textColor="#ff2d2d2d"
+            android:textSize="@dimen/sw_15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/mFecDePaTextView"
+            app:layout_constraintLeft_toRightOf="@+id/mFecDePaTextView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mFecDePaTextView" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/mLeftTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_23dp"
+            android:layout_marginTop="@dimen/sw_45dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/sw_9dp"
+            android:paddingBottom="@dimen/sw_9dp"
+            android:text="Cancelar"
+            android:textColor="#fff98d4f"
+            android:textSize="@dimen/sw_15sp"
+            app:border_color_normal="#F98D4F"
+            app:border_width_normal="@dimen/sw_1dp"
+            app:corner_radius="@dimen/sw_6dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/mRightTextView"
+            app:layout_constraintTop_toBottomOf="@+id/mFecDePaTextView" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/mRightTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_23dp"
+            android:layout_marginTop="@dimen/sw_45dp"
+            android:layout_marginEnd="@dimen/sw_23dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/sw_9dp"
+            android:paddingBottom="@dimen/sw_9dp"
+            android:text="Confirmar"
+            android:textColor="#fff"
+            android:textSize="@dimen/sw_15sp"
+            app:background_normal="#F98D4F"
+            app:corner_radius="@dimen/sw_6dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/mLeftTextView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mFecDePaTextView"/>
+    </com.ruffian.library.widget.RConstraintLayout>
+</LinearLayout>

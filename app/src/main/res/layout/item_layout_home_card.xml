@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <com.ruffian.library.widget.RConstraintLayout
+            android:id="@+id/mRootLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/sw_10dp"
+            android:minHeight="@dimen/sw_81dp"
+            android:paddingStart="@dimen/sw_10dp"
+            android:paddingTop="@dimen/sw_12dp"
+            android:paddingEnd="@dimen/sw_10dp"
+            android:paddingBottom="@dimen/sw_12dp"
+            app:background_normal="@array/home_card_fist"
+            app:corner_radius="@dimen/sw_5dp"
+            app:gradient_orientation="RIGHT_LEFT"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/mCardContentTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bajo\nTasa de\ninterés"
+                android:textColor="#ffffffff"
+                android:textSize="@dimen/sw_13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/mCardIconImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sw_21dp"
+                android:src="@mipmap/ic_home_card_first"
+                app:layout_constraintBottom_toTopOf="@+id/mNumberTextView"
+                app:layout_constraintLeft_toRightOf="@+id/mCardContentTextView"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/mNumberTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0%"
+                android:textColor="#ffffffff"
+                android:textSize="@dimen/sw_15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mCardIconImageView" />
+        </com.ruffian.library.widget.RConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

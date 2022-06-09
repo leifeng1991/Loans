@@ -1,0 +1,69 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+static def stringValue(def value) {
+    return "\"${value}\""
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", stringValue("http://54.232.52.193:80/prestamomio/"))
+        }
+
+        debug {
+            debuggable true
+            buildConfigField("String", "BASE_URL", stringValue("http://54.232.52.193:80/prestamomio/"))
+
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation project(path: ':lib_base')
+    implementation project(path: ':lib_device')
+    implementation 'androidx.annotation:annotation:1.3.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.haibin:calendarview:3.7.1'
+
+    implementation 'com.github.getActivity:XXPermissions:13.6'
+
+    implementation 'com.yuyh.imgsel:library:2.1.0'
+
+    implementation 'top.zibin:Luban:1.1.8'
+}

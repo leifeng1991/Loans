@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="home_card_fist">
+        <item>#1D84FF</item>
+        <item>#56ABFC</item>
+    </array>
+
+    <array name="home_card_second">
+        <item>#F98D4F</item>
+        <item>#F7C06D</item>
+    </array>
+
+    <array name="home_card_third">
+        <item>#6547FE</item>
+        <item>#A385FD</item>
+    </array>
+
+    <array name="home_card_four">
+        <item>#6677FE</item>
+        <item>#73A8FE</item>
+    </array>
+
+    <array name="home_card_five">
+        <item>#FD8585</item>
+        <item>#FF5555</item>
+    </array>
+
+    <string-array name="app_week_string_array">
+        <item>S</item>
+        <item>M</item>
+        <item>T</item>
+        <item>W</item>
+        <item>T</item>
+        <item>F</item>
+        <item>S</item>
+    </string-array>
+</resources>

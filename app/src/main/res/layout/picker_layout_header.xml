@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/sw_31dp"
+    android:layout_marginBottom="@dimen/sw_13dp"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+
+    <com.ruffian.library.widget.RConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/sw_15dp"
+        android:paddingTop="@dimen/sw_17dp"
+        android:paddingEnd="@dimen/sw_15dp"
+        android:paddingBottom="@dimen/sw_17dp"
+        app:background_normal="@color/white"
+        app:corner_radius_top_left="@dimen/sw_12dp"
+        app:corner_radius_top_right="@dimen/sw_12dp">
+
+        <TextView
+            android:id="@+id/dialog_modal_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cerrar"
+            android:textColor="#ff333333"
+            android:textSize="@dimen/sw_16sp" />
+
+        <TextView
+            android:id="@+id/dialog_modal_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:visibility="gone"
+            android:singleLine="true"
+            android:textColor="#FF666666"
+            android:textSize="@dimen/sw_14sp" />
+
+        <TextView
+            android:id="@+id/dialog_modal_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirmar"
+            android:textColor="#fff98d4f"
+            android:textSize="@dimen/sw_16sp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </com.ruffian.library.widget.RConstraintLayout>
+</LinearLayout>

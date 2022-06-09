@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingTop="@dimen/sw_20dp">
+
+        <TextView
+            android:id="@+id/mCoinTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_16dp"
+            android:text="Coin Wallet"
+            android:textColor="#ff2d2d2d"
+            android:textSize="@dimen/sw_15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/mAplYaTextView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mAplYaTextView" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/mAplYaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/sw_27dp"
+            android:paddingStart="@dimen/sw_13dp"
+            android:paddingTop="@dimen/sw_4dp"
+            android:paddingEnd="@dimen/sw_13dp"
+            android:paddingBottom="@dimen/sw_4dp"
+            android:text="Aplica ya"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/sw_14sp"
+            app:background_normal="#F98D4F"
+            app:corner_radius="@dimen/sw_22dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mMoneyTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_16dp"
+            android:layout_marginTop="@dimen/sw_6dp"
+            android:text="s/20,000-30,000"
+            android:textColor="#ffd65d47"
+            android:textSize="@dimen/sw_15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mAplYaTextView" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/sw_27dp"
+            android:gravity="end"
+            android:text="Repay via credit card\nInterest is 0.43%\nInstant loan"
+            android:textColor="#ffc2c2c2"
+            android:textSize="@dimen/sw_10sp"
+            android:layout_marginTop="@dimen/sw_9dp"
+            app:layout_constraintLeft_toRightOf="@+id/mMoneyTextView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mAplYaTextView" />
+
+        <TextView
+            android:id="@+id/mMonDelTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_16dp"
+            android:layout_marginTop="@dimen/sw_4dp"
+            android:text="Monto del préstamo"
+            android:textColor="#ffc2c2c2"
+            android:textSize="@dimen/sw_12sp"
+            app:layout_constraintTop_toBottomOf="@+id/mMoneyTextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

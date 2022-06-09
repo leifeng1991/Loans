@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        tools:context=".ui.activity.LoadingActivity">
+
+        <ImageView
+            android:id="@+id/mLoadingImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sw_138dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mLoadingTipTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sw_25dp"
+            android:text="Espere por favor"
+            android:textColor="#ff2d2d2d"
+            android:textSize="@dimen/sw_17sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mLoadingImageView" />
+
+        <TextView
+            android:id="@+id/mLoadingTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sw_8dp"
+            android:text="00:00:59"
+            android:textColor="#ff2d2d2d"
+            android:textSize="@dimen/sw_22sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mLoadingTipTextView" />
+
+        <com.ruffian.library.widget.RTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sw_56dp"
+            android:paddingStart="@dimen/sw_21dp"
+            android:paddingTop="@dimen/sw_7dp"
+            android:paddingEnd="@dimen/sw_21dp"
+            android:paddingBottom="@dimen/sw_7dp"
+            app:corner_radius="@dimen/sw_4dp"
+            app:background_normal="#FFF0E7"
+            android:text="¡El sistema está evaluando su crédito!"
+            android:textColor="#ff2d2d2d"
+            android:textSize="@dimen/sw_15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mLoadingTimeTextView" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/mGigTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_23dp"
+            android:layout_marginTop="@dimen/sw_95dp"
+            android:layout_marginEnd="@dimen/sw_23dp"
+            android:layout_marginBottom="@dimen/sw_80dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/sw_14dp"
+            android:paddingBottom="@dimen/sw_14dp"
+            android:text="Siguiente"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/sw_15sp"
+            app:background_normal="#F98D4F"
+            app:background_selected="#F98D4F"
+            app:corner_radius="@dimen/sw_50dp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

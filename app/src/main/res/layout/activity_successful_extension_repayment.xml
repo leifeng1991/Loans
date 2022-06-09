@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.activity.SuccessfulExtensionRepaymentActivity">
+
+        <ImageView
+            android:id="@+id/mIconImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_dui_gou"
+            android:layout_marginTop="@dimen/sw_110dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mTimeTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sw_23dp"
+            android:text="Fecha de pago"
+            android:textColor="#2D2D2D"
+            android:textSize="@dimen/sw_17sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mIconImageView" />
+
+        <TextView
+            android:id="@+id/mTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12-03-2021"
+            android:textColor="#CE2020"
+            android:textSize="@dimen/sw_17sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mTimeTitleTextView" />
+
+        <com.ruffian.library.widget.RTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_15dp"
+            android:layout_marginEnd="@dimen/sw_15dp"
+            android:layout_marginBottom="@dimen/sw_130dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/sw_11dp"
+            android:paddingBottom="@dimen/sw_11dp"
+            android:text="Devolver"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/sw_17sp"
+            app:background_normal="#F98D4F"
+            app:corner_radius="@dimen/sw_50dp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/mCountDownTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10s"
+            android:textColor="#ffa6a6a6"
+            android:textSize="@dimen/sw_13sp"
+            android:layout_marginBottom="@dimen/sw_103dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

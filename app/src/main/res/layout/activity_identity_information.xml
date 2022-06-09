@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.activity.IdentityInformationActivity">
+
+        <TextView
+            android:id="@+id/mTitleTextView_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_15dp"
+            android:layout_marginTop="@dimen/sw_18dp"
+            android:text="*Valida tu DNI"
+            android:textColor="#ff2d2d2d"
+            android:textSize="@dimen/sw_16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/mAnvImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/sw_15dp"
+            android:layout_marginTop="@dimen/sw_13dp"
+            android:layout_marginEnd="@dimen/sw_11dp"
+            android:src="@mipmap/ic_identidad_anverso"
+            app:layout_constraintDimensionRatio="334:194"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/mRevImageView"
+            app:layout_constraintTop_toBottomOf="@+id/mTitleTextView_1" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/mFreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sw_13dp"
+            android:gravity="center"
+            android:minWidth="@dimen/sw_98dp"
+            android:paddingTop="@dimen/sw_5dp"
+            android:paddingBottom="@dimen/sw_5dp"
+            android:text="Frente"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/sw_14sp"
+            app:background_normal="#F98D4F"
+            app:corner_radius="@dimen/sw_30dp"
+            app:layout_constraintLeft_toLeftOf="@+id/mAnvImageView"
+            app:layout_constraintRight_toRightOf="@+id/mAnvImageView"
+            app:layout_constraintTop_toBottomOf="@+id/mAnvImageView" />
+
+        <ImageView
+            android:id="@+id/mCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:src="@mipmap/ic_camera"
+            app:layout_constraintBottom_toBottomOf="@+id/mAnvImageView"
+            app:layout_constraintLeft_toLeftOf="@+id/mAnvImageView"
+            app:layout_constraintRight_toRightOf="@+id/mAnvImageView"
+            app:layout_constraintTop_toTopOf="@+id/mAnvImageView" />
+
+        <ImageView
+            android:id="@+id/mRevImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/sw_13dp"
+            android:layout_marginEnd="@dimen/sw_15dp"
+            android:src="@mipmap/ic_identidad_reverso"
+            app:layout_constraintDimensionRatio="334:194"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/mAnvImageView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mTitleTextView_1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:src="@mipmap/ic_camera"
+            app:layout_constraintBottom_toBottomOf="@+id/mRevImageView"
+            app:layout_constraintLeft_toLeftOf="@+id/mRevImageView"
+            app:layout_constraintRight_toRightOf="@+id/mRevImageView"
+            app:layout_constraintTop_toTopOf="@+id/mRevImageView" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/mDorTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sw_13dp"
+            android:gravity="center"
+            android:minWidth="@dimen/sw_98dp"
+            android:paddingTop="@dimen/sw_5dp"
+            android:paddingBottom="@dimen/sw_5dp"
+            android:text="Dorso"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/sw_14sp"
+            app:background_normal="#F98D4F"
+            app:corner_radius="@dimen/sw_30dp"
+            app:layout_constraintLeft_toLeftOf="@+id/mRevImageView"
+            app:layout_constraintRight_toRightOf="@+id/mRevImageView"
+            app:layout_constraintTop_toBottomOf="@+id/mRevImageView" />
+
+        <TextView
+            android:id="@+id/mTitleTextView_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_15dp"
+            android:layout_marginTop="@dimen/sw_25dp"
+            android:text="*Reconocimiento facial"
+            android:textColor="#ff2d2d2d"
+            android:textSize="@dimen/sw_16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mFreTextView" />
+
+        <ImageView
+            android:id="@+id/mCameraImageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/sw_13dp"
+            android:src="@mipmap/ic_camera_empty"
+            app:layout_constraintTop_toBottomOf="@+id/mTitleTextView_2"
+            app:layout_constraintDimensionRatio="334:194"
+            app:layout_constraintLeft_toLeftOf="@+id/mAnvImageView"
+            app:layout_constraintRight_toRightOf="@+id/mAnvImageView" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/mHagTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sw_13dp"
+            android:gravity="center"
+            android:minWidth="@dimen/sw_98dp"
+            android:paddingTop="@dimen/sw_5dp"
+            android:paddingBottom="@dimen/sw_5dp"
+            android:text="Haga clic en"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/sw_14sp"
+            app:background_normal="#F98D4F"
+            app:corner_radius="@dimen/sw_30dp"
+            app:layout_constraintLeft_toLeftOf="@+id/mCameraImageView"
+            app:layout_constraintRight_toRightOf="@+id/mCameraImageView"
+            app:layout_constraintTop_toBottomOf="@+id/mCameraImageView" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:src="@mipmap/ic_camera"
+            app:layout_constraintBottom_toBottomOf="@+id/mCameraImageView"
+            app:layout_constraintLeft_toLeftOf="@+id/mCameraImageView"
+            app:layout_constraintRight_toRightOf="@+id/mCameraImageView"
+            app:layout_constraintTop_toTopOf="@+id/mCameraImageView" />
+
+        <Space
+            android:id="@+id/mSpace"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sw_20dp"
+            app:layout_constraintTop_toBottomOf="@+id/mHagTextView" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#F4F4F4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mBottomContentTextView" />
+
+        <TextView
+            android:id="@+id/mBottomContentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_15dp"
+            android:layout_marginEnd="@dimen/sw_15dp"
+            android:paddingTop="@dimen/sw_16dp"
+            android:text="*Todos los datos que proporciones serán tratados correctamente y nunca se revelará su información del perfil"
+            android:textColor="#ff6b6b6b"
+            android:textSize="@dimen/sw_14sp"
+            app:layout_constraintTop_toBottomOf="@+id/mSpace" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/mGigTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_15dp"
+            android:layout_marginTop="@dimen/sw_27dp"
+            android:layout_marginEnd="@dimen/sw_15dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/sw_14dp"
+            android:paddingBottom="@dimen/sw_14dp"
+            android:text="Siguiente"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/sw_15sp"
+            app:background_normal="#80F98D4F"
+            app:background_selected="#F98D4F"
+            app:corner_radius="@dimen/sw_50dp"
+            app:layout_constraintTop_toBottomOf="@+id/mBottomContentTextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F4F4F4">
+
+        <View
+            android:id="@+id/mTopBgView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#F98D4F"
+            app:layout_constraintBottom_toBottomOf="@+id/mLogoImageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.ruffian.library.widget.RImageView
+            android:id="@+id/mLogoImageView"
+            android:layout_width="@dimen/sw_41dp"
+            android:layout_height="@dimen/sw_47dp"
+            android:layout_marginStart="@dimen/sw_15dp"
+            android:layout_marginTop="@dimen/sw_30dp"
+            android:paddingBottom="@dimen/sw_6dp"
+            android:src="@mipmap/ic_home_app_logo"
+            app:corner_radius="@dimen/sw_41dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/sw_6dp"
+            android:text="App_name loan"
+            android:textColor="#fffbfbfb"
+            android:textSize="@dimen/sw_18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/mLogoImageView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mLogoImageView" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/sw_15dp"
+            android:src="@mipmap/ic_white_phone"
+            app:layout_constraintBottom_toBottomOf="@+id/mLogoImageView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/mLogoImageView" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mTopBgView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.ruffian.library.widget.RLinearLayout
+                    android:id="@+id/mOrderStateLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sw_15dp"
+                    android:layout_marginTop="@dimen/sw_15dp"
+                    android:layout_marginEnd="@dimen/sw_15dp"
+                    android:orientation="horizontal"
+                    app:background_normal="@color/white"
+                    app:corner_radius="@dimen/sw_4dp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.ruffian.library.widget.RTextView
+                        android:id="@+id/mAwaitTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawablePadding="@dimen/sw_11dp"
+                        android:paddingStart="@dimen/sw_5dp"
+                        android:paddingTop="@dimen/sw_29dp"
+                        android:paddingBottom="@dimen/sw_24dp"
+                        android:text="Bajo\nRevisión"
+                        android:textSize="@dimen/sw_13sp"
+                        app:icon_normal_top="@mipmap/ic_await_normal"
+                        app:icon_selected_top="@mipmap/ic_await_checked"
+                        app:text_color_normal="#585858"
+                        app:text_color_selected="#F98D4F" />
+
+                    <com.ruffian.library.widget.RTextView
+                        android:id="@+id/mInPaymentTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawablePadding="@dimen/sw_11dp"
+                        android:paddingStart="@dimen/sw_5dp"
+                        android:paddingTop="@dimen/sw_29dp"
+                        android:paddingBottom="@dimen/sw_24dp"
+                        android:text="Devolución\npendiente"
+                        android:textSize="@dimen/sw_13sp"
+                        app:icon_normal_top="@mipmap/ic_in_payment_normal"
+                        app:icon_selected_top="@mipmap/ic_in_payment_checked"
+                        app:text_color_normal="#585858"
+                        app:text_color_selected="#F98D4F" />
+
+                    <com.ruffian.library.widget.RTextView
+                        android:id="@+id/mDeferredPaymentTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawablePadding="@dimen/sw_11dp"
+                        android:paddingStart="@dimen/sw_5dp"
+                        android:paddingTop="@dimen/sw_29dp"
+                        android:paddingBottom="@dimen/sw_24dp"
+                        android:text="Atrasado 0\nDías"
+                        android:textSize="@dimen/sw_13sp"
+                        app:icon_normal_top="@mipmap/ic_deferred_payment_normal"
+                        app:icon_selected_top="@mipmap/ic_deferred_payment_checked"
+                        app:text_color_normal="#585858"
+                        app:text_color_selected="#F98D4F" />
+
+                    <com.ruffian.library.widget.RTextView
+                        android:id="@+id/mRefusedLendTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawablePadding="@dimen/sw_11dp"
+                        android:paddingStart="@dimen/sw_5dp"
+                        android:paddingTop="@dimen/sw_29dp"
+                        android:paddingBottom="@dimen/sw_24dp"
+                        android:text="Préstamo\nfallido"
+                        android:textSize="@dimen/sw_13sp"
+                        app:icon_normal_top="@mipmap/ic_refused_lend_normal"
+                        app:icon_selected_top="@mipmap/ic_refused_lend_checked"
+                        app:text_color_normal="#585858"
+                        app:text_color_selected="#F98D4F" />
+                </com.ruffian.library.widget.RLinearLayout>
+
+                <com.ruffian.library.widget.RLinearLayout
+                    android:id="@+id/mApplyLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sw_15dp"
+                    android:layout_marginTop="@dimen/sw_13dp"
+                    android:layout_marginEnd="@dimen/sw_15dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:background_normal="@color/white"
+                    app:corner_radius="@dimen/sw_4dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mOrderStateLayout">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/sw_30dp"
+                        android:text="Monto de devolución"
+                        android:textColor="#5A5A5A"
+                        android:textSize="@dimen/sw_14sp" />
+
+                    <TextView
+                        android:id="@+id/mApplyMoneyTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="$ 1,000.00"
+                        android:textColor="#F98D4F"
+                        android:textSize="@dimen/sw_24sp" />
+
+                    <com.ruffian.library.widget.RTextView
+                        android:id="@+id/mApplyTimeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/sw_19dp"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/sw_28dp"
+                        android:paddingTop="@dimen/sw_4dp"
+                        android:paddingEnd="@dimen/sw_28dp"
+                        android:paddingBottom="@dimen/sw_4dp"
+                        android:text="Fecha de aplicación\n30–11-2020"
+                        android:textColor="#ff2d2d2d"
+                        android:textSize="@dimen/sw_13sp"
+                        app:background_normal="#F3F3F3"
+                        app:corner_radius="@dimen/sw_5dp" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/sw_23dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/sw_46dp"
+                        android:layout_marginTop="@dimen/sw_13dp"
+                        android:background="@mipmap/base_bg_transparent"
+                        android:orientation="horizontal">
+
+                        <com.ruffian.library.widget.RTextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="214"
+                            android:gravity="center"
+                            android:text="Devolver Ya"
+                            android:textSize="@dimen/sw_17sp"
+                            app:background_normal="#F98D4F"
+                            app:corner_radius_bottom_left="@dimen/sw_4dp"
+                            app:text_color_normal="@color/white" />
+
+                        <com.ruffian.library.widget.RTextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="131"
+                            android:gravity="center"
+                            android:text="Prolonga 7 \ndías más"
+                            android:textSize="@dimen/sw_15sp"
+                            app:background_normal="#DBDBDB"
+                            app:corner_radius_bottom_right="@dimen/sw_4dp"
+                            app:text_color_normal="#ff606060" />
+                    </LinearLayout>
+                </com.ruffian.library.widget.RLinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/mWaitReviewLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/mApplyLayout">
+
+                    <com.ruffian.library.widget.RLinearLayout
+                        android:id="@+id/mDarLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_15dp"
+                        android:layout_marginTop="@dimen/sw_28dp"
+                        android:layout_marginEnd="@dimen/sw_15dp"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/sw_15dp"
+                        android:paddingTop="@dimen/sw_17dp"
+                        android:paddingEnd="@dimen/sw_13dp"
+                        android:paddingBottom="@dimen/sw_14dp"
+                        app:background_normal="@color/white"
+                        app:corner_radius="@dimen/sw_4dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="@dimen/sw_6dp"
+                            android:text="Darse Cuenta"
+                            android:textColor="#fff98d4f"
+                            android:textSize="@dimen/sw_14sp"
+                            app:drawableStartCompat="@mipmap/ic_trumpet" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/sw_18dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/ic_jiang_di" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/sw_6dp"
+                                android:text="El próximo préstamo obtendrá más, el costo reducirá"
+                                android:textColor="#ff2d2d2d"
+                                android:textSize="@dimen/sw_14sp" />
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/sw_11dp"
+                            android:drawablePadding="@dimen/sw_6dp"
+                            android:text="Monto del préstamo"
+                            android:textColor="#ff2d2d2d"
+                            android:textSize="@dimen/sw_14sp"
+                            app:drawableStartCompat="@mipmap/ic_trumpet" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:text="Máximo"
+                            android:textColor="#fff98d4f"
+                            android:textSize="@dimen/sw_14sp" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.ruffian.library.widget.RView
+                                android:id="@+id/mFirstPointView"
+                                android:layout_width="@dimen/sw_7dp"
+                                android:layout_height="@dimen/sw_7dp"
+                                app:background_normal="#D8D8D8"
+                                app:corner_radius="@dimen/sw_7dp"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintRight_toLeftOf="@+id/mFirstLineView"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <View
+                                android:id="@+id/mFirstLineView"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/sw_1dp"
+                                android:background="#D4D4D4"
+                                app:layout_constraintBottom_toBottomOf="@+id/mFirstPointView"
+                                app:layout_constraintHorizontal_weight="1"
+                                app:layout_constraintLeft_toRightOf="@+id/mFirstPointView"
+                                app:layout_constraintRight_toLeftOf="@+id/mSecondPointView"
+                                app:layout_constraintTop_toTopOf="@+id/mFirstPointView" />
+
+                            <com.ruffian.library.widget.RView
+                                android:id="@+id/mSecondPointView"
+                                android:layout_width="@dimen/sw_7dp"
+                                android:layout_height="@dimen/sw_7dp"
+                                app:background_normal="#D8D8D8"
+                                app:corner_radius="@dimen/sw_7dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/mFirstPointView"
+                                app:layout_constraintLeft_toRightOf="@+id/mFirstLineView"
+                                app:layout_constraintRight_toLeftOf="@+id/mSecondLineView"
+                                app:layout_constraintTop_toTopOf="@+id/mFirstPointView" />
+
+                            <View
+                                android:id="@+id/mSecondLineView"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/sw_1dp"
+                                android:background="#D4D4D4"
+                                app:layout_constraintBottom_toBottomOf="@+id/mFirstPointView"
+                                app:layout_constraintHorizontal_weight="1"
+                                app:layout_constraintLeft_toRightOf="@+id/mSecondPointView"
+                                app:layout_constraintRight_toLeftOf="@+id/mThirdPointView"
+                                app:layout_constraintTop_toTopOf="@+id/mFirstPointView" />
+
+                            <com.ruffian.library.widget.RView
+                                android:id="@+id/mThirdPointView"
+                                android:layout_width="@dimen/sw_7dp"
+                                android:layout_height="@dimen/sw_7dp"
+                                app:background_normal="#D8D8D8"
+                                app:corner_radius="@dimen/sw_7dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/mFirstPointView"
+                                app:layout_constraintLeft_toRightOf="@+id/mSecondLineView"
+                                app:layout_constraintRight_toLeftOf="@+id/mThirdLineView"
+                                app:layout_constraintTop_toTopOf="@+id/mFirstPointView" />
+
+                            <View
+                                android:id="@+id/mThirdLineView"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/sw_1dp"
+                                android:background="#D4D4D4"
+                                app:layout_constraintBottom_toBottomOf="@+id/mFirstPointView"
+                                app:layout_constraintHorizontal_weight="1"
+                                app:layout_constraintLeft_toRightOf="@+id/mThirdPointView"
+                                app:layout_constraintRight_toLeftOf="@+id/mFourPointView"
+                                app:layout_constraintTop_toTopOf="@+id/mFirstPointView" />
+
+                            <com.ruffian.library.widget.RView
+                                android:id="@+id/mFourPointView"
+                                android:layout_width="@dimen/sw_7dp"
+                                android:layout_height="@dimen/sw_7dp"
+                                app:background_normal="#D8D8D8"
+                                app:corner_radius="@dimen/sw_7dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/mFirstPointView"
+                                app:layout_constraintLeft_toRightOf="@+id/mThirdLineView"
+                                app:layout_constraintRight_toLeftOf="@+id/mFourLineView"
+                                app:layout_constraintTop_toTopOf="@+id/mFirstPointView" />
+
+                            <View
+                                android:id="@+id/mFourLineView"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/sw_1dp"
+                                android:background="#D4D4D4"
+                                app:layout_constraintBottom_toBottomOf="@+id/mFirstPointView"
+                                app:layout_constraintHorizontal_weight="1"
+                                app:layout_constraintLeft_toRightOf="@+id/mFourPointView"
+                                app:layout_constraintRight_toLeftOf="@+id/mFivePointView"
+                                app:layout_constraintTop_toTopOf="@+id/mFirstPointView" />
+
+                            <com.ruffian.library.widget.RView
+                                android:id="@+id/mFivePointView"
+                                android:layout_width="@dimen/sw_7dp"
+                                android:layout_height="@dimen/sw_7dp"
+                                android:layout_marginEnd="@dimen/sw_18dp"
+                                app:background_normal="#D8D8D8"
+                                app:corner_radius="@dimen/sw_7dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/mFirstPointView"
+                                app:layout_constraintLeft_toRightOf="@+id/mFourLineView"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/mFirstPointView" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/sw_5dp"
+                                android:text="$5,000"
+                                android:textColor="#ff2d2d2d"
+                                android:textSize="@dimen/sw_14sp"
+                                app:layout_constraintLeft_toLeftOf="@+id/mSecondPointView"
+                                app:layout_constraintRight_toRightOf="@+id/mSecondPointView"
+                                app:layout_constraintTop_toBottomOf="@+id/mSecondPointView" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/sw_5dp"
+                                android:text="$5,000"
+                                android:textColor="#ff2d2d2d"
+                                android:textSize="@dimen/sw_14sp"
+                                app:layout_constraintLeft_toLeftOf="@+id/mThirdPointView"
+                                app:layout_constraintRight_toRightOf="@+id/mThirdPointView"
+                                app:layout_constraintTop_toBottomOf="@+id/mThirdPointView" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/sw_5dp"
+                                android:text="$5,000"
+                                android:textColor="#ff2d2d2d"
+                                android:textSize="@dimen/sw_14sp"
+                                app:layout_constraintLeft_toLeftOf="@+id/mFourPointView"
+                                app:layout_constraintRight_toRightOf="@+id/mFourPointView"
+                                app:layout_constraintTop_toBottomOf="@+id/mFourPointView" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/sw_5dp"
+                                android:text="$5,000"
+                                android:textColor="#ff2d2d2d"
+                                android:textSize="@dimen/sw_14sp"
+                                app:layout_constraintLeft_toLeftOf="@+id/mFivePointView"
+                                app:layout_constraintRight_toRightOf="@+id/mFivePointView"
+                                app:layout_constraintTop_toBottomOf="@+id/mFivePointView" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.ruffian.library.widget.RLinearLayout>
+
+                    <TextView
+                        android:id="@+id/mCountDownTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sw_36dp"
+                        android:drawablePadding="@dimen/sw_11dp"
+                        android:text="00:00:15"
+                        android:textColor="#fff89d68"
+                        android:textSize="@dimen/sw_14sp"
+                        app:drawableTopCompat="@mipmap/ic_count_down"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mDarLayout" />
+
+                    <TextView
+                        android:id="@+id/mBottomTipTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_15dp"
+                        android:layout_marginEnd="@dimen/sw_15dp"
+                        android:background="@color/white"
+                        android:paddingTop="@dimen/sw_6dp"
+                        android:paddingBottom="@dimen/sw_30dp"
+                        android:text="Estamos estimando su préstamo, costará 20-30 segundos. Preste atención a los resultados de la revisión en la aplicación."
+                        android:textColor="#ff6b6b6b"
+                        android:textSize="@dimen/sw_14sp"
+                        app:layout_constraintTop_toBottomOf="@+id/mCountDownTextView" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/mFireImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_11dp"
+                    android:src="@mipmap/ic_fire"
+                    android:visibility="gone"
+                    app:layout_constraintRight_toRightOf="@+id/mApplyLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/mApplyLayout" />
+
+                <LinearLayout
+                    android:id="@+id/mInHandLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_13dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/mApplyLayout">
+
+                    <com.ruffian.library.widget.RConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_15dp"
+                        android:layout_marginEnd="@dimen/sw_15dp"
+                        android:paddingStart="@dimen/sw_26dp"
+                        android:paddingTop="@dimen/sw_33dp"
+                        android:paddingEnd="@dimen/sw_26dp"
+                        android:paddingBottom="@dimen/sw_25dp"
+                        app:background_normal="@color/white"
+                        app:corner_radius="@dimen/sw_4dp">
+
+                        <com.ruffian.library.widget.RImageView
+                            android:id="@+id/mInHandFirstImageView"
+                            android:layout_width="@dimen/sw_24dp"
+                            android:layout_height="@dimen/sw_24dp"
+                            android:background="#f00"
+                            app:layout_constraintHorizontal_chainStyle="spread_inside"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@+id/mInHandSecondImageView" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/sw_2dp"
+                            android:background="#F98D4F"
+                            app:layout_constraintBottom_toBottomOf="@+id/mInHandFirstImageView"
+                            app:layout_constraintLeft_toRightOf="@+id/mInHandFirstImageView"
+                            app:layout_constraintRight_toLeftOf="@+id/mInHandSecondImageView"
+                            app:layout_constraintTop_toTopOf="@+id/mInHandFirstImageView" />
+
+                        <com.ruffian.library.widget.RImageView
+                            android:id="@+id/mInHandSecondImageView"
+                            android:layout_width="@dimen/sw_24dp"
+                            android:layout_height="@dimen/sw_24dp"
+                            android:background="#f00"
+                            app:layout_constraintLeft_toRightOf="@+id/mInHandFirstImageView"
+                            app:layout_constraintRight_toLeftOf="@+id/mInHandThirdImageView" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/sw_2dp"
+                            android:background="#F98D4F"
+                            app:layout_constraintBottom_toBottomOf="@+id/mInHandFirstImageView"
+                            app:layout_constraintLeft_toRightOf="@+id/mInHandSecondImageView"
+                            app:layout_constraintRight_toLeftOf="@+id/mInHandThirdImageView"
+                            app:layout_constraintTop_toTopOf="@+id/mInHandFirstImageView" />
+
+                        <com.ruffian.library.widget.RImageView
+                            android:id="@+id/mInHandThirdImageView"
+                            android:layout_width="@dimen/sw_24dp"
+                            android:layout_height="@dimen/sw_24dp"
+                            android:background="#f00"
+                            app:layout_constraintLeft_toRightOf="@+id/mInHandSecondImageView"
+                            app:layout_constraintRight_toRightOf="parent" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/sw_16dp"
+                            android:text="Su solicitud ha sido aprobada. Se esta procesando y dispersando su préstamo."
+                            android:textColor="#2D2D2D"
+                            android:textSize="@dimen/sw_14sp"
+                            app:layout_constraintTop_toBottomOf="@+id/mInHandFirstImageView" />
+                    </com.ruffian.library.widget.RConstraintLayout>
+
+                    <com.youth.banner.Banner
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/sw_141dp"
+                        android:layout_marginStart="@dimen/sw_15dp"
+                        android:layout_marginTop="@dimen/sw_13dp"
+                        android:layout_marginEnd="@dimen/sw_15dp"
+                        app:banner_radius="@dimen/sw_4dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/mInPaymentLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_13dp"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/sw_46dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/mApplyLayout">
+
+                    <com.ruffian.library.widget.RLinearLayout
+                        android:id="@+id/mRepaymentLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_15dp"
+                        android:layout_marginTop="@dimen/sw_13dp"
+                        android:layout_marginEnd="@dimen/sw_15dp"
+                        android:orientation="vertical"
+                        android:padding="@dimen/sw_15dp"
+                        app:background_normal="@color/white"
+                        app:corner_radius="@dimen/sw_4dp">
+
+                        <TextView
+                            android:id="@+id/mJgTitleTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="@dimen/sw_7dp"
+                            android:text="¡ADVERTENCIA!"
+                            android:textColor="#fff98d4f"
+                            android:textSize="@dimen/sw_18sp"
+                            app:drawableStartCompat="@mipmap/ic_jing_gao" />
+
+                        <TextView
+                            android:id="@+id/mJgContentTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tu crédito tiene 2 días vencido, pague de inmediato. Si hay una situación de vencimiento maliciosa, presentaremos una denuncia en su contra a través de los canales legales."
+                            android:textColor="#2D2D2D"
+                            android:textSize="@dimen/sw_15sp" />
+                    </com.ruffian.library.widget.RLinearLayout>
+
+                    <com.ruffian.library.widget.RConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_15dp"
+                        android:layout_marginEnd="@dimen/sw_15dp"
+                        android:paddingTop="@dimen/sw_22dp"
+                        android:paddingBottom="@dimen/sw_6dp"
+                        app:background_normal="@color/white"
+                        app:corner_radius="@dimen/sw_4dp">
+
+                        <TextView
+                            android:id="@+id/mInPayFirstTitleTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Monto de devolución"
+                            android:textColor="#5A5A5A"
+                            android:textSize="@dimen/sw_14sp" />
+
+                        <com.ruffian.library.widget.RImageView
+                            android:id="@+id/mInPaymentFirstImageView"
+                            android:layout_width="@dimen/sw_24dp"
+                            android:layout_height="@dimen/sw_24dp"
+                            android:layout_marginStart="@dimen/sw_26dp"
+                            android:layout_marginTop="@dimen/sw_16dp"
+                            android:background="#f00"
+                            app:layout_constraintHorizontal_chainStyle="spread_inside"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@+id/mInPaymentSecondImageView"
+                            app:layout_constraintTop_toBottomOf="@+id/mInPayFirstTitleTextView" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/sw_2dp"
+                            android:background="#E1E1E1"
+                            app:layout_constraintBottom_toBottomOf="@+id/mInPaymentFirstImageView"
+                            app:layout_constraintLeft_toRightOf="@+id/mInPaymentFirstImageView"
+                            app:layout_constraintRight_toLeftOf="@+id/mInPaymentSecondImageView"
+                            app:layout_constraintTop_toTopOf="@+id/mInPaymentFirstImageView" />
+
+                        <com.ruffian.library.widget.RImageView
+                            android:id="@+id/mInPaymentSecondImageView"
+                            android:layout_width="@dimen/sw_24dp"
+                            android:layout_height="@dimen/sw_24dp"
+                            android:layout_marginTop="@dimen/sw_16dp"
+                            android:background="#f00"
+                            app:layout_constraintLeft_toRightOf="@+id/mInPaymentFirstImageView"
+                            app:layout_constraintRight_toLeftOf="@+id/mInPaymentThirdImageView"
+                            app:layout_constraintTop_toBottomOf="@+id/mInPayFirstTitleTextView" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/sw_2dp"
+                            android:background="#E1E1E1"
+                            app:layout_constraintBottom_toBottomOf="@+id/mInPaymentFirstImageView"
+                            app:layout_constraintLeft_toRightOf="@+id/mInPaymentSecondImageView"
+                            app:layout_constraintRight_toLeftOf="@+id/mInPaymentThirdImageView"
+                            app:layout_constraintTop_toTopOf="@+id/mInPaymentFirstImageView" />
+
+                        <com.ruffian.library.widget.RImageView
+                            android:id="@+id/mInPaymentThirdImageView"
+                            android:layout_width="@dimen/sw_24dp"
+                            android:layout_height="@dimen/sw_24dp"
+                            android:layout_marginTop="@dimen/sw_16dp"
+                            android:layout_marginEnd="@dimen/sw_26dp"
+                            android:background="#f00"
+                            app:layout_constraintLeft_toRightOf="@+id/mInPaymentSecondImageView"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/mInPayFirstTitleTextView" />
+
+                        <TextView
+                            android:id="@+id/mInPaymentFirstDayTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/sw_7dp"
+                            android:text="7 Días"
+                            android:textColor="#ff606060"
+                            android:textSize="@dimen/sw_14sp"
+                            app:layout_constraintLeft_toLeftOf="@+id/mInPaymentFirstImageView"
+                            app:layout_constraintRight_toRightOf="@+id/mInPaymentFirstImageView"
+                            app:layout_constraintTop_toBottomOf="@+id/mInPaymentFirstImageView" />
+
+                        <TextView
+                            android:id="@+id/mInPaymentTwoDayTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/sw_7dp"
+                            android:text="14 Días"
+                            android:textColor="#ff606060"
+                            android:textSize="@dimen/sw_14sp"
+                            app:layout_constraintLeft_toLeftOf="@+id/mInPaymentSecondImageView"
+                            app:layout_constraintRight_toRightOf="@+id/mInPaymentSecondImageView"
+                            app:layout_constraintTop_toBottomOf="@+id/mInPaymentSecondImageView" />
+
+                        <TextView
+                            android:id="@+id/mInPaymentThirdDayTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/sw_7dp"
+                            android:text="30 Días"
+                            android:textColor="#ff606060"
+                            android:textSize="@dimen/sw_14sp"
+                            app:layout_constraintLeft_toLeftOf="@+id/mInPaymentThirdImageView"
+                            app:layout_constraintRight_toRightOf="@+id/mInPaymentThirdImageView"
+                            app:layout_constraintTop_toBottomOf="@+id/mInPaymentThirdImageView" />
+
+                        <com.ruffian.library.widget.RImageView
+                            android:id="@+id/mHbFirstImageView"
+                            android:layout_width="@dimen/sw_47dp"
+                            android:layout_height="@dimen/sw_55dp"
+                            android:layout_marginStart="@dimen/sw_15dp"
+                            android:layout_marginTop="@dimen/sw_23dp"
+                            android:background="#f00"
+                            app:layout_constraintHorizontal_chainStyle="spread_inside"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@+id/mHbTwoImageView"
+                            app:layout_constraintTop_toBottomOf="@+id/mInPaymentFirstDayTextView" />
+
+                        <com.ruffian.library.widget.RImageView
+                            android:id="@+id/mHbTwoImageView"
+                            android:layout_width="@dimen/sw_47dp"
+                            android:layout_height="@dimen/sw_55dp"
+                            android:layout_marginTop="@dimen/sw_23dp"
+                            android:background="#f00"
+                            app:layout_constraintLeft_toRightOf="@+id/mHbFirstImageView"
+                            app:layout_constraintRight_toLeftOf="@+id/mHbThreeImageView"
+                            app:layout_constraintTop_toBottomOf="@+id/mInPaymentFirstDayTextView" />
+
+                        <com.ruffian.library.widget.RImageView
+                            android:id="@+id/mHbThreeImageView"
+                            android:layout_width="@dimen/sw_47dp"
+                            android:layout_height="@dimen/sw_55dp"
+                            android:layout_marginTop="@dimen/sw_23dp"
+                            android:background="#f00"
+                            app:layout_constraintLeft_toRightOf="@+id/mHbTwoImageView"
+                            app:layout_constraintRight_toLeftOf="@+id/mHbFourImageView"
+                            app:layout_constraintTop_toBottomOf="@+id/mInPaymentFirstDayTextView" />
+
+                        <com.ruffian.library.widget.RImageView
+                            android:id="@+id/mHbFourImageView"
+                            android:layout_width="@dimen/sw_47dp"
+                            android:layout_height="@dimen/sw_55dp"
+                            android:layout_marginTop="@dimen/sw_23dp"
+                            android:layout_marginEnd="@dimen/sw_15dp"
+                            android:background="#f00"
+                            app:layout_constraintLeft_toRightOf="@+id/mHbThreeImageView"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/mInPaymentFirstDayTextView" />
+
+                        <ImageView
+                            android:id="@+id/mHbFirstLockImageView"
+                            android:layout_width="@dimen/sw_11dp"
+                            android:layout_height="@dimen/sw_11dp"
+                            android:background="#f0f"
+                            app:layout_constraintBottom_toTopOf="@+id/mHbFirstImageView"
+                            app:layout_constraintLeft_toRightOf="@+id/mHbFirstImageView"
+                            app:layout_constraintRight_toRightOf="@+id/mHbFirstImageView"
+                            app:layout_constraintTop_toTopOf="@+id/mHbFirstImageView" />
+
+                        <ImageView
+                            android:id="@+id/mHbSecondLockImageView"
+                            android:layout_width="@dimen/sw_11dp"
+                            android:layout_height="@dimen/sw_11dp"
+                            android:background="#f0f"
+                            app:layout_constraintBottom_toTopOf="@+id/mHbTwoImageView"
+                            app:layout_constraintLeft_toRightOf="@+id/mHbTwoImageView"
+                            app:layout_constraintRight_toRightOf="@+id/mHbTwoImageView"
+                            app:layout_constraintTop_toTopOf="@+id/mHbTwoImageView" />
+
+                        <ImageView
+                            android:id="@+id/mHbThirdLockImageView"
+                            android:layout_width="@dimen/sw_11dp"
+                            android:layout_height="@dimen/sw_11dp"
+                            android:background="#f0f"
+                            app:layout_constraintBottom_toTopOf="@+id/mHbThreeImageView"
+                            app:layout_constraintLeft_toRightOf="@+id/mHbThreeImageView"
+                            app:layout_constraintRight_toRightOf="@+id/mHbThreeImageView"
+                            app:layout_constraintTop_toTopOf="@+id/mHbThreeImageView" />
+
+                        <ImageView
+                            android:id="@+id/mHbFourLockImageView"
+                            android:layout_width="@dimen/sw_11dp"
+                            android:layout_height="@dimen/sw_11dp"
+                            android:background="#f0f"
+                            app:layout_constraintBottom_toTopOf="@+id/mHbFourImageView"
+                            app:layout_constraintLeft_toRightOf="@+id/mHbFourImageView"
+                            app:layout_constraintRight_toRightOf="@+id/mHbFourImageView"
+                            app:layout_constraintTop_toTopOf="@+id/mHbFourImageView" />
+
+                        <com.ruffian.library.widget.RTextView
+                            android:id="@+id/mHbReeTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/sw_45dp"
+                            android:layout_marginTop="@dimen/sw_30dp"
+                            android:layout_marginEnd="@dimen/sw_45dp"
+                            android:gravity="center"
+                            android:paddingTop="@dimen/sw_11dp"
+                            android:paddingBottom="@dimen/sw_11dp"
+                            android:text="Reembolso rápido"
+                            android:textColor="#fffdfdfd"
+                            android:textSize="@dimen/sw_16sp"
+                            app:background_normal="#F98D4F"
+                            app:corner_radius="@dimen/sw_45dp"
+                            app:layout_constraintTop_toBottomOf="@+id/mHbFirstImageView" />
+
+                        <ImageView
+                            android:layout_width="@dimen/sw_23dp"
+                            android:layout_height="@dimen/sw_34dp"
+                            android:layout_marginTop="@dimen/sw_28dp"
+                            android:layout_marginEnd="@dimen/sw_18dp"
+                            app:layout_constraintRight_toRightOf="@+id/mHbReeTextView"
+                            app:layout_constraintTop_toTopOf="@+id/mHbReeTextView" />
+                    </com.ruffian.library.widget.RConstraintLayout>
+
+                    <com.ruffian.library.widget.RConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_15dp"
+                        android:layout_marginTop="@dimen/sw_13dp"
+                        android:layout_marginEnd="@dimen/sw_15dp"
+                        android:paddingStart="@dimen/sw_15dp"
+                        android:paddingEnd="@dimen/sw_15dp"
+                        app:background_normal="@color/white"
+                        app:corner_radius="@dimen/sw_4dp">
+
+                        <ImageView
+                            android:id="@+id/mBankFirstImageView"
+                            android:layout_width="@dimen/sw_110dp"
+                            android:layout_height="@dimen/sw_42dp"
+                            android:layout_marginTop="@dimen/sw_15dp"
+                            android:layout_marginBottom="@dimen/sw_15dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.ruffian.library.widget.RTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/sw_22dp"
+                            android:paddingTop="@dimen/sw_4dp"
+                            android:paddingEnd="@dimen/sw_22dp"
+                            android:paddingBottom="@dimen/sw_4dp"
+                            android:text="Pay"
+                            android:textColor="#ffffffff"
+                            android:textSize="@dimen/sw_14sp"
+                            app:background_normal="#F98D4F"
+                            app:corner_radius="@dimen/sw_50dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </com.ruffian.library.widget.RConstraintLayout>
+
+                    <com.ruffian.library.widget.RConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_15dp"
+                        android:layout_marginTop="@dimen/sw_13dp"
+                        android:layout_marginEnd="@dimen/sw_15dp"
+                        android:paddingStart="@dimen/sw_15dp"
+                        android:paddingEnd="@dimen/sw_15dp"
+                        app:background_normal="@color/white"
+                        app:corner_radius="@dimen/sw_4dp">
+
+                        <ImageView
+                            android:id="@+id/mBankTwoImageView"
+                            android:layout_width="@dimen/sw_110dp"
+                            android:layout_height="@dimen/sw_42dp"
+                            android:layout_marginTop="@dimen/sw_15dp"
+                            android:layout_marginBottom="@dimen/sw_15dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.ruffian.library.widget.RTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/sw_22dp"
+                            android:paddingTop="@dimen/sw_4dp"
+                            android:paddingEnd="@dimen/sw_22dp"
+                            android:paddingBottom="@dimen/sw_4dp"
+                            android:text="Pay"
+                            android:textColor="#ffffffff"
+                            android:textSize="@dimen/sw_14sp"
+                            app:background_normal="#F98D4F"
+                            app:corner_radius="@dimen/sw_50dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </com.ruffian.library.widget.RConstraintLayout>
+
+                    <com.ruffian.library.widget.RConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_15dp"
+                        android:layout_marginTop="@dimen/sw_13dp"
+                        android:layout_marginEnd="@dimen/sw_15dp"
+                        android:paddingStart="@dimen/sw_15dp"
+                        android:paddingTop="@dimen/sw_14dp"
+                        android:paddingEnd="@dimen/sw_15dp"
+                        android:paddingBottom="@dimen/sw_14dp"
+                        app:background_normal="@color/white"
+                        app:corner_radius="@dimen/sw_4dp">
+
+                        <TextView
+                            android:id="@+id/mInPayTitleTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Detalle"
+                            android:textColor="#5A5A5A"
+                            android:textSize="@dimen/sw_16sp" />
+
+                        <TextView
+                            android:id="@+id/mMonDeDevTitleTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/sw_12dp"
+                            android:text="Monto de devolución"
+                            android:textColor="#2B2B2B"
+                            android:textSize="@dimen/sw_14sp"
+                            app:layout_constraintTop_toBottomOf="@+id/mInPayTitleTextView" />
+
+                        <TextView
+                            android:id="@+id/mMonDeDevTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="$300,702.00"
+                            android:textColor="#2B2B2B"
+                            android:textSize="@dimen/sw_14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/mMonDeDevTitleTextView"
+                            app:layout_constraintLeft_toRightOf="@+id/mMonDeDevTitleTextView"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/mMonDeDevTitleTextView" />
+
+                        <TextView
+                            android:id="@+id/mFecDePaTitleTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/sw_12dp"
+                            android:text="Fecha de pago de tu crédito"
+                            android:textColor="#2B2B2B"
+                            android:textSize="@dimen/sw_14sp"
+                            app:layout_constraintTop_toBottomOf="@+id/mMonDeDevTitleTextView" />
+
+                        <TextView
+                            android:id="@+id/mFecDePaTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="20-11-2022"
+                            android:textColor="#2B2B2B"
+                            android:textSize="@dimen/sw_14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/mFecDePaTitleTextView"
+                            app:layout_constraintLeft_toRightOf="@+id/mFecDePaTitleTextView"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/mFecDePaTitleTextView" />
+
+                        <TextView
+                            android:id="@+id/mMonDePreTitleTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/sw_12dp"
+                            android:text="Monto del préstamo"
+                            android:textColor="#2B2B2B"
+                            android:textSize="@dimen/sw_14sp"
+                            app:layout_constraintTop_toBottomOf="@+id/mFecDePaTitleTextView" />
+
+                        <TextView
+                            android:id="@+id/mMonDePreTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="$300,000.00"
+                            android:textColor="#2B2B2B"
+                            android:textSize="@dimen/sw_14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/mMonDePreTitleTextView"
+                            app:layout_constraintLeft_toRightOf="@+id/mMonDePreTitleTextView"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/mMonDePreTitleTextView" />
+
+                        <TextView
+                            android:id="@+id/mInterestTitleTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/sw_12dp"
+                            android:text="Interest"
+                            android:textColor="#2B2B2B"
+                            android:textSize="@dimen/sw_14sp"
+                            app:layout_constraintTop_toBottomOf="@+id/mMonDePreTitleTextView" />
+
+                        <TextView
+                            android:id="@+id/mInterestTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="$702.00"
+                            android:textColor="#2B2B2B"
+                            android:textSize="@dimen/sw_14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/mInterestTitleTextView"
+                            app:layout_constraintLeft_toRightOf="@+id/mInterestTitleTextView"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/mInterestTitleTextView" />
+                    </com.ruffian.library.widget.RConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sw_13dp"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/mOrderStateLayout">
+
+                    <com.ruffian.library.widget.RConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_15dp"
+                        android:layout_marginEnd="@dimen/sw_15dp"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/sw_32dp"
+                        android:paddingBottom="@dimen/sw_21dp"
+                        app:background_normal="@color/white"
+                        app:corner_radius="@dimen/sw_4dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/sw_69dp"
+                            android:layout_marginEnd="@dimen/sw_69dp"
+                            android:src="@mipmap/ic_loan_failure_bg"
+                            app:layout_constraintDimensionRatio="415:241"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/sw_4dp"
+                            android:text="Préstamo fallido"
+                            android:textColor="#fff94f4f"
+                            android:textSize="@dimen/sw_18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent" />
+                    </com.ruffian.library.widget.RConstraintLayout>
+
+                    <com.ruffian.library.widget.RTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_15dp"
+                        android:layout_marginTop="@dimen/sw_18dp"
+                        android:layout_marginEnd="@dimen/sw_15dp"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/sw_11dp"
+                        android:paddingBottom="@dimen/sw_11dp"
+                        android:text="Actualizar cuenta bancaria"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/sw_17sp"
+                        app:background_normal="#F98D4F"
+                        app:corner_radius="@dimen/sw_50dp" />
+
+                    <com.ruffian.library.widget.RLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sw_15dp"
+                        android:layout_marginTop="@dimen/sw_13dp"
+                        android:layout_marginEnd="@dimen/sw_15dp"
+                        android:orientation="vertical"
+                        android:padding="@dimen/sw_15dp"
+                        app:background_normal="@color/white"
+                        app:corner_radius="@dimen/sw_4dp">
+
+                        <TextView
+                            android:id="@+id/mLosTitleTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="@dimen/sw_9dp"
+                            android:text="Lo siento"
+                            android:textColor="#F94F4F"
+                            android:textSize="@dimen/sw_18sp"
+                            app:drawableStartCompat="@mipmap/ic_circle_cross" />
+
+                        <TextView
+                            android:id="@+id/mLosContentTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/sw_9dp"
+                            android:text="El sistema ha detectado que la información de su cuenta bancaria no se ha completado correctamente, cárguela de nuevo."
+                            android:textColor="#2D2D2D"
+                            android:textSize="@dimen/sw_15sp" />
+                    </com.ruffian.library.widget.RLinearLayout>
+
+                    <com.youth.banner.Banner
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/sw_141dp"
+                        android:layout_marginStart="@dimen/sw_15dp"
+                        android:layout_marginTop="@dimen/sw_13dp"
+                        android:layout_marginEnd="@dimen/sw_15dp"
+                        android:background="#f00"
+                        app:banner_radius="@dimen/sw_4dp" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/sw_94dp" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

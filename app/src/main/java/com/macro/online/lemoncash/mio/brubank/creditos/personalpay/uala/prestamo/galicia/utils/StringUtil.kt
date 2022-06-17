@@ -92,6 +92,27 @@ object StringUtil {
     }
 
     /**
+     * 给金额显示添加千分位","
+     *
+     * @param val 金额
+     */
+    fun parseMoneyZero(`val`: Any?): String {
+        try {
+            val pattern = "##,###,##0"
+            if (`val` == null || `val` == "")
+                return ""
+            var valStr = `val`.toString() + ""
+            val df = DecimalFormat(pattern)
+            valStr = df.format(BigDecimal(valStr))
+            return valStr
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return "——"
+        }
+
+    }
+
+    /**
      * 格式化手机号
      *
      * @param phoneNumberStr 手机号

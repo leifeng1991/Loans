@@ -8,6 +8,7 @@ import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.databinding.ActivityAgreementBinding
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.utils.SharedPrefUtil
 import com.moufans.lib_base.base.activity.BaseActivity
+import com.moufans.lib_base.base.webview.WebViewActivity
 
 class AgreementActivity : BaseActivity<ActivityAgreementBinding>() {
 
@@ -20,7 +21,7 @@ class AgreementActivity : BaseActivity<ActivityAgreementBinding>() {
 
     override fun initListener() {
         mDataBinding.mSaltTextView.setOnClickListener {
-
+            startActivity(WebViewActivity.newIntent(this,"https://www.baidu.com/"))
         }
         mDataBinding.mAcceptTextView.setOnClickListener {
             SharedPrefUtil.put(AppConstants.IS_FIRST_LAUNCH, "=======")

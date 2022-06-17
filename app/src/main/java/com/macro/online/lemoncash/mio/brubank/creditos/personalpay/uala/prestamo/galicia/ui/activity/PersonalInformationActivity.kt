@@ -184,11 +184,13 @@ class PersonalInformationActivity : AppBaseActivity<ActivityPersonalInformationB
                 return
             }
             LogUtil.e("=========================5======================!!!!!!!!!!!!!!")
-            if (!isEmail(corr)) {
-                if (isSubmit)
+            if (isSubmit) {
+                if (!isEmail(corr)) {
                     ToastUtil.showShort("Error de formato de correo electrónico, vuelva a ingresar")
-                return
+                    return
+                }
             }
+
             LogUtil.e("=========================6======================!!!!!!!!!!!!!!")
 
             if (mSelectedProvinceAddress == null) {

@@ -156,12 +156,17 @@ class ContactInformationActivity : AppBaseActivity<ActivityContactInformationBin
         }
 
         val phoneOne = mDataBinding.mTelEditText.text.toString()
-        if (TextUtils.isEmpty(phoneOne) || phoneOne.length < 10) {
+        if (TextUtils.isEmpty(phoneOne)) {
             if (isSubmit)
                 ToastUtil.showShort("El número de teléfono es anormal, vuelva a ingresar")
             return
         }
-
+        if (isSubmit) {
+            if (phoneOne.length < 10) {
+                ToastUtil.showShort("El número de teléfono es anormal, vuelva a ingresar")
+                return
+            }
+        }
         val nameOne = mDataBinding.mNomEditText.text.toString()
         if (TextUtils.isEmpty(nameOne)) {
             if (isSubmit)
@@ -176,8 +181,14 @@ class ContactInformationActivity : AppBaseActivity<ActivityContactInformationBin
         }
 
         val phoneTwo = mDataBinding.mTelEditText2.text.toString()
-        if (TextUtils.isEmpty(phoneTwo) || phoneTwo.length < 10) {
+        if (TextUtils.isEmpty(phoneTwo)) {
             if (isSubmit)
+                ToastUtil.showShort("El número de teléfono es anormal, vuelva a ingresar")
+            return
+        }
+
+        if (isSubmit) {
+            if (phoneTwo.length < 10)
                 ToastUtil.showShort("El número de teléfono es anormal, vuelva a ingresar")
             return
         }
@@ -195,10 +206,11 @@ class ContactInformationActivity : AppBaseActivity<ActivityContactInformationBin
             return
         }
 
-        if (phoneOne == phoneTwo) {
-            if (isSubmit)
+        if (isSubmit) {
+            if (phoneOne == phoneTwo) {
                 ToastUtil.showShort("Por favor seleccione un contacto diferente")
-            return
+                return
+            }
         }
 
         mDataBinding.mGigTextView.isSelected = true

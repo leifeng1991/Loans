@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/mProPreOneTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sw_13dp"
+            android:paddingStart="@dimen/sw_4dp"
+            android:paddingTop="@dimen/sw_2dp"
+            android:paddingEnd="@dimen/sw_4dp"
+            android:visibility="invisible"
+            android:paddingBottom="@dimen/sw_2dp"
+            android:text="Próximo préstamo"
+            android:textColor="#ff2d2d2d"
+            android:textSize="@dimen/sw_10sp"
+            app:background_normal="#EFEFEF"
+            app:corner_radius="@dimen/sw_3dp"
+            android:layout_marginEnd="@dimen/sw_5dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/mDayThreeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sw_8dp"
+            android:layout_marginTop="@dimen/sw_8dp"
+            android:layout_marginEnd="@dimen/sw_5dp"
+            android:gravity="center"
+            android:paddingTop="@dimen/sw_8dp"
+            android:paddingBottom="@dimen/sw_8dp"
+            android:text="17-01-2011"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/sw_14sp"
+            app:background_normal="#EFEFEF"
+            app:background_selected="#F98D4F"
+            app:corner_radius="@dimen/sw_5dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mProPreOneTextView"
+            app:text_color_normal="#2D2D2D"
+            app:text_color_selected="@color/white" />
+
+        <ImageView
+            android:id="@+id/mLockImageView"
+            android:layout_width="@dimen/sw_19dp"
+            android:layout_height="@dimen/sw_19dp"
+            android:src="@mipmap/ic_lock"
+            android:visibility="gone"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mProPreOneTextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

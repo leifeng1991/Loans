@@ -1,18 +1,16 @@
 package com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.fragment
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.hjq.permissions.OnPermissionCallback
-import com.hjq.permissions.XXPermissions
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.R
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.api.BaseFormDataUtils
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.api.ext.appApi
@@ -21,16 +19,15 @@ import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.databinding.FragmentNewHomeBinding
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.databinding.LayoutHomeFirstBinding
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.databinding.LayoutHomeSecondBinding
-import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.activity.*
+import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.activity.AmountChoiceActivity
+import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.activity.LoginRegisterActivity
+import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.activity.PersonalInformationActivity
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.adapter.HomeCardAdapter
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.utils.CallUtils
-import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.utils.CommonDialogUtil
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.utils.SharedPrefUtil
+import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.utils.StringUtil
 import com.moufans.lib_base.base.fragment.HintRefreshFragment
 import com.moufans.lib_base.ext.convertReqExecute
-import com.moufans.lib_base.utils.ImageLoader
-import com.moufans.lib_base.utils.LogUtil
-import com.moufans.lib_base.utils.ToastUtil
 import com.moufans.lib_base.utils.span.AndroidSpan
 import kotlinx.coroutines.launch
 
@@ -80,19 +77,36 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
 
         when (homeStatusDataBean.harmfulGreengrocerScissorsJustCarriage) {
             -1 -> {
-                statusOne(homeStatusDataBean)
+                when (homeStatusDataBean.compressedEasternPassengerMetalSnow) {
+                    -1 -> {
+                        statusOne(homeStatusDataBean, -1)
+                    }
+                    0 -> {
+                        statusOne(homeStatusDataBean, 1)
+                    }
+                }
+
             }
             0 -> {
-
+                statusTwo(2, homeStatusDataBean)
             }
             1 -> {
-
+                statusTwo(3, homeStatusDataBean)
             }
             2 -> {
-                statusTwo(0, homeStatusDataBean)
+                if (homeStatusDataBean.scientificFlatTrickGrowth == 0) {
+                    statusTwo(0, homeStatusDataBean)
+                }
+                if (homeStatusDataBean.scientificFlatTrickGrowth == 2) {
+                    statusTwo(1, homeStatusDataBean)
+                }
+                if (homeStatusDataBean.scientificFlatTrickGrowth == 4) {
+                    statusTwo(4, homeStatusDataBean)
+                }
+
             }
             3 -> {
-
+                statusTwo(5, homeStatusDataBean)
             }
         }
     }
@@ -106,8 +120,8 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
         mFragmentDataBinding.mRootLayout.addView(mView)
         val dataBinding = DataBindingUtil.bind<LayoutHomeFirstBinding>(mView)
         dataBinding?.apply {
-            mMoneyTextView.text = if (type == -1) "$27,000" else "$${homeStatusDataBean.unfitTermCleverHat}"
-            mCardMoneyTextView.text = if (type == -1) "$27,000" else "$${homeStatusDataBean.unfitTermCleverHat}"
+            mMoneyTextView.text = if (type == -1) "$27,000" else "$${StringUtil.parseMoneyZero(homeStatusDataBean.unfitTermCleverHat)}"
+            mCardMoneyTextView.text = if (type == -1) "$27,000" else "$${StringUtil.parseMoneyZero(homeStatusDataBean.unfitTermCleverHat)}"
             if (type == 1 || type == 2) {
                 mLineView2.isSelected = true
                 mLineView1.helper.apply {
@@ -138,25 +152,29 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
                 if (TextUtils.isEmpty(SharedPrefUtil.get(AppConstants.USER_TOKEN, "")))
                     startActivity(LoginRegisterActivity.newIntent(requireContext()))
                 else
-                    startActivity(AmountChoiceActivity.newIntent(requireContext()))
+                    startActivity(PersonalInformationActivity.newIntent(requireContext()))
             }
             // banner
             mBannerView.setOnClickListener {
 
             }
+
+            getBanner(mBannerView)
         }
 
+
+    }
+
+    private fun getBanner(mBannerView: ImageView) {
         if (!TextUtils.isEmpty(SharedPrefUtil.get(AppConstants.USER_TOKEN, ""))) {
             val hashMap: HashMap<String, String> = BaseFormDataUtils.getBaseHasMap(1)
             lifecycleScope.launch {
                 convertReqExecute({ appApi.homeBanner(hashMap) }, onSuccess = {
                     if (!TextUtils.isEmpty(it.unpleasantCentigradeBee)) {
-                        dataBinding?.apply {
-                            Glide.with(this@HomeFragment).load(it.unpleasantCentigradeBee).into(mBannerView)
-                            mBannerView.visibility = View.VISIBLE
-                        }
+                        Glide.with(this@HomeFragment).load(it.unpleasantCentigradeBee).into(mBannerView)
+                        mBannerView.visibility = View.VISIBLE
                     } else {
-                        dataBinding?.mBannerView?.visibility = View.GONE
+                        mBannerView.visibility = View.GONE
                     }
                 }, onFailure = null)
             }
@@ -173,10 +191,18 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
         mFragmentDataBinding.mRootLayout.addView(mView)
         val dataBinding = DataBindingUtil.bind<LayoutHomeSecondBinding>(mView)
         dataBinding?.apply {
+            // 客服电话
+            mCallImageView.setOnClickListener {
+                CallUtils.showCallDialog(requireActivity())
+            }
             mAwaitTextView.isSelected = (type == 0 || type == 1)
+            mAwaitImageView.setImageResource(if (type == 0 || type == 1) R.mipmap.ic_await_checked else R.mipmap.ic_await_normal)
             mInPaymentTextView.isSelected = type == 2
+            mInPaymentImageView.setImageResource(if (type == 2) R.mipmap.ic_in_payment_checked else R.mipmap.ic_in_payment_normal)
             mDeferredPaymentTextView.isSelected = type == 3
+            mDeferredPaymentImageView.setImageResource(if (type == 3) R.mipmap.ic_deferred_payment_checked else R.mipmap.ic_deferred_payment_normal)
             mRefusedLendTextView.isSelected = (type == 4 || type == 5)
+            mRefusedLendImageView.setImageResource(if (type == 4 || type == 5) R.mipmap.ic_refused_lend_checked else R.mipmap.ic_refused_lend_normal)
 
             when (type) {
                 0 -> {
@@ -184,7 +210,7 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
                     mFireImageView.visibility = View.VISIBLE
                     mWaitReviewLayout.visibility = View.VISIBLE
                     // 申请金额
-                    mApplyMoneyTextView.text = AndroidSpan().drawRelativeSize("$", 0.625f).drawCommonSpan(bean.leadingLuckRepairs).spanText
+                    mApplyMoneyTextView.text = AndroidSpan().drawRelativeSize("$", 0.625f).drawCommonSpan(StringUtil.parseMoney(bean.unfitTermCleverHat)).spanText
                     // 申请时间
                     mApplyTimeTextView.text = "Fecha de aplicación\n${bean.mexicanEventRepairsPrize}"
 
@@ -192,13 +218,25 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
                 1 -> {
                     mApplyLayout.visibility = View.VISIBLE
                     mInHandLayout.visibility = View.VISIBLE
+                    // 申请金额
+                    mApplyMoneyTextView.text = AndroidSpan().drawRelativeSize("$", 0.625f).drawCommonSpan(StringUtil.parseMoney(bean.unfitTermCleverHat)).spanText
+                    // 申请时间
+                    mApplyTimeTextView.text = "Fecha de aplicación\n${bean.mexicanEventRepairsPrize}"
+                    getBanner(mImageViewBanner)
                 }
                 2 -> {
                     mApplyLayout.visibility = View.VISIBLE
                     mApplyBottomLayout.visibility = View.VISIBLE
                     mInPaymentLayout.visibility = View.VISIBLE
                     mHbFirstTopBgView.visibility = View.GONE
+                    mHbTwoTopBgView.visibility = View.GONE
                     mHbFirstLockImageView.visibility = View.GONE
+                    mHbSecondLockImageView.visibility = View.GONE
+                    mMonDeDeTextView.text = ""
+                    mApplyMoneyTextView.text = AndroidSpan().drawRelativeSize("$", 0.625f).drawCommonSpan(StringUtil.parseMoney(bean.unfitTermCleverHat)).spanText
+                    mApplyTimeTextView.text = "Fecha de pago de tu\n${bean.contentTeacherHappyGallon}"
+                    mFecDePaTextView.text = "${bean.contentTeacherHappyGallon}"
+                    mMonDePreTextView.text = AndroidSpan().drawRelativeSize("$", 0.625f).drawCommonSpan(StringUtil.parseMoney(bean.unfitTermCleverHat)).spanText
                 }
                 3 -> {
                     mApplyLayout.visibility = View.VISIBLE
@@ -206,16 +244,29 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
                     mInPaymentLayout.visibility = View.VISIBLE
                     mRepaymentLayout.visibility = View.VISIBLE
                     mHbFirstTopBgView.visibility = View.GONE
+                    mHbTwoTopBgView.visibility = View.GONE
                     mHbFirstLockImageView.visibility = View.GONE
+                    mHbSecondLockImageView.visibility = View.GONE
+                    mDeferredPaymentTextView.text = "Atrasado\n${bean.blueFriedClinic} Días"
+                    mApplyMoneyTextView.text = AndroidSpan().drawRelativeSize("$", 0.625f).drawCommonSpan(StringUtil.parseMoney(bean.unfitTermCleverHat)).spanText
+                    mApplyTimeTextView.text = "Fecha de pago de tu crédito\n${bean.contentTeacherHappyGallon}"
+                    mDevYaTextView.text = "Pago la deuda ya"
+                    mJgContentTextView.text = AndroidSpan().drawCommonSpan("Tu crédito tiene ").drawForegroundColor("${bean.blueFriedClinic} Días",Color.parseColor("#F98D4F"))
+                        .drawCommonSpan(" vencido, pague de inmediato. Si hay una situación de vencimiento maliciosa, presentaremos una denuncia en su contra a través de los canales legales.").spanText
                 }
                 4 -> {
                     mFailedLayout.visibility = View.VISIBLE
+                    getBanner(mFailedBannerImageView)
+                    mFailedActTextView.setOnClickListener {
+
+                    }
                 }
                 5 -> {
                     mFailedLayout.visibility = View.VISIBLE
                     mFailedActTextView.visibility = View.GONE
                     mFailedTipTextView.text = "Solicitud rechazada"
                     mLosContentTextView.text = "El sistema ha detectado que la información de su cuenta bancaria no se ha completado correctamente, cárguela de nuevo."
+                    getBanner(mFailedBannerImageView)
                 }
             }
         }

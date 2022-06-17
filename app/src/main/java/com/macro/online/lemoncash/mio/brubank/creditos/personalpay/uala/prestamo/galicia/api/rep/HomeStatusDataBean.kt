@@ -22,8 +22,11 @@ class HomeStatusDataBean {
 //    "popularMessyLeague":4
 //    ,"saltyDistantForest":14}
     //  -1：可申请 0：还款中 1：逾期中 2：loanStatus=2放款失败，loanStatus<>2审核中 3：拒绝
-    var harmfulGreengrocerScissorsJustCarriage = 0
-    var compressedEasternPassengerMetalSnow: String? = null
+    var harmfulGreengrocerScissorsJustCarriage = -10
+    var scientificFlatTrickGrowth = -10
+    var personalCommaJapanFederalContent = -10
+    var festivalHoneyRudeAutumn = -10
+    var compressedEasternPassengerMetalSnow = -10
     var harmfulRefreshmentsPieceUniform: String? = null
     var angryDocumentEarlyDesert: String? = null
     var unfitTermCleverHat: String? = null
@@ -31,8 +34,10 @@ class HomeStatusDataBean {
     var leadingLuckRepairs: String? = null
     var greyRainbow: String? = null
     var mexicanEventRepairsPrize: String? = null
+    var contentTeacherHappyGallon: String? = null
     var greyGardeningPieceLicense: String? = null
     var differentPerfectMemoryCottage: String? = null
     var popularMessyLeague: String? = null
     var saltyDistantForest: String? = null
+    var blueFriedClinic: String? = "0"
 }

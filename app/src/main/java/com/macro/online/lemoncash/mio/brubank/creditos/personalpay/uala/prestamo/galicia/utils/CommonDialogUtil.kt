@@ -11,13 +11,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.haibin.calendarview.Calendar
 import com.haibin.calendarview.CalendarView
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.R
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.adapter.RecommendOtherProductsAdapter
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 object CommonDialogUtil {
@@ -47,9 +51,11 @@ object CommonDialogUtil {
         return dialogBuilder.dialog
     }
 
-    fun showConfirmAmountDialog(activity: Activity): Dialog {
+    fun showConfirmAmountDialog(activity: Activity, firstStr: String, secondStr: String, thirdStr: String, listener: OnButtonClickListener): Dialog {
         val loadDataView = View.inflate(activity, R.layout.dialog_layout_confirm_amount, null)
-
+        loadDataView.findViewById<TextView>(R.id.mCanReciValueTextView).text = firstStr
+        loadDataView.findViewById<TextView>(R.id.mMonDeDevValueTextView).text = secondStr
+        loadDataView.findViewById<TextView>(R.id.mFecDePaValueTextView).text = thirdStr
         val dialogBuilder = DialogBuilder
             .create(activity)
             .setView(loadDataView)
@@ -66,13 +72,13 @@ object CommonDialogUtil {
             dialogBuilder.dismiss()
         }
         loadDataView.findViewById<TextView>(R.id.mRightTextView).setOnClickListener {
-            showConfirmAmountCountdownDialog(activity)
+            listener.onRightOrCenterButtonClick(dialogBuilder)
             dialogBuilder.dismiss()
         }
         return dialogBuilder.dialog
     }
 
-    fun showConfirmAmountCountdownDialog(activity: Activity): Dialog {
+    fun showConfirmAmountCountdownDialog(activity: AppCompatActivity, listener: OnButtonClickListener): Dialog {
         val loadDataView = View.inflate(activity, R.layout.dialog_layout_confirm_amount_countdown, null)
 
         val dialogBuilder = DialogBuilder
@@ -83,7 +89,23 @@ object CommonDialogUtil {
         // 左侧按钮点击事件
         dialogBuilder.setCancelable(false)
 
+        val job = activity.lifecycleScope.launch {
+            repeat(10) {
+                loadDataView.findViewById<TextView>(R.id.mCountDownTextView).text = "${10 - it}s"
+                delay(1000)
+                if (10 - it - 1 == 0) {
+                    dialogBuilder.dismiss()
+                }
+            }
+        }
+
         loadDataView.findViewById<ImageView>(R.id.mCloseImageView).setOnClickListener {
+            job.cancel()
+            dialogBuilder.dismiss()
+        }
+        loadDataView.findViewById<TextView>(R.id.mOkTextVie).setOnClickListener {
+            job.cancel()
+            listener.onRightOrCenterButtonClick(dialogBuilder)
             dialogBuilder.dismiss()
         }
 

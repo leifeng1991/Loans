@@ -44,6 +44,7 @@
             app:layout_constraintTop_toTopOf="@+id/mLogoImageView" />
 
         <ImageView
+            android:id="@+id/mCallImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/sw_15dp"
@@ -75,70 +76,118 @@
                     app:corner_radius="@dimen/sw_4dp"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <com.ruffian.library.widget.RTextView
-                        android:id="@+id/mAwaitTextView"
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:drawablePadding="@dimen/sw_11dp"
-                        android:paddingStart="@dimen/sw_5dp"
+                        android:orientation="vertical"
                         android:paddingTop="@dimen/sw_29dp"
-                        android:paddingBottom="@dimen/sw_24dp"
-                        android:text="      Bajo\n      Revisión"
-                        android:textSize="@dimen/sw_13sp"
-                        app:icon_normal_top="@mipmap/ic_await_normal"
-                        app:icon_selected_top="@mipmap/ic_await_checked"
-                        app:text_color_normal="#585858"
-                        app:text_color_selected="#F98D4F" />
+                        android:paddingBottom="@dimen/sw_24dp">
 
-                    <com.ruffian.library.widget.RTextView
-                        android:id="@+id/mInPaymentTextView"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:drawablePadding="@dimen/sw_11dp"
-                        android:paddingStart="@dimen/sw_5dp"
-                        android:paddingTop="@dimen/sw_29dp"
-                        android:paddingBottom="@dimen/sw_24dp"
-                        android:text="  Devolución\n  pendiente"
-                        android:textSize="@dimen/sw_13sp"
-                        app:icon_normal_top="@mipmap/ic_in_payment_normal"
-                        app:icon_selected_top="@mipmap/ic_in_payment_checked"
-                        app:text_color_normal="#585858"
-                        app:text_color_selected="#F98D4F" />
+                        <ImageView
+                            android:id="@+id/mAwaitImageView"
+                            android:layout_width="@dimen/sw_40dp"
+                            android:layout_height="@dimen/sw_40dp"
+                            android:layout_gravity="center" />
 
-                    <com.ruffian.library.widget.RTextView
-                        android:id="@+id/mDeferredPaymentTextView"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:drawablePadding="@dimen/sw_11dp"
-                        android:paddingStart="@dimen/sw_5dp"
-                        android:paddingTop="@dimen/sw_29dp"
-                        android:paddingBottom="@dimen/sw_24dp"
-                        android:text="    Atrasado 0\n    Días"
-                        android:textSize="@dimen/sw_13sp"
-                        app:icon_normal_top="@mipmap/ic_deferred_payment_normal"
-                        app:icon_selected_top="@mipmap/ic_deferred_payment_checked"
-                        app:text_color_normal="#585858"
-                        app:text_color_selected="#F98D4F" />
+                        <com.ruffian.library.widget.RTextView
+                            android:id="@+id/mAwaitTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/sw_15dp"
+                            android:layout_marginTop="@dimen/sw_11dp"
+                            android:text="Bajo\nRevisión"
+                            android:textSize="@dimen/sw_13sp"
+                            app:text_color_normal="#585858"
+                            app:text_color_selected="#F98D4F" />
+                    </LinearLayout>
 
-                    <com.ruffian.library.widget.RTextView
-                        android:id="@+id/mRefusedLendTextView"
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/sw_13dp"
                         android:layout_weight="1"
-                        android:drawablePadding="@dimen/sw_11dp"
-                        android:paddingStart="@dimen/sw_5dp"
+                        android:orientation="vertical"
                         android:paddingTop="@dimen/sw_29dp"
-                        android:paddingBottom="@dimen/sw_24dp"
-                        android:text="   Préstamo\n   fallido"
-                        android:textSize="@dimen/sw_13sp"
-                        app:icon_normal_top="@mipmap/ic_refused_lend_normal"
-                        app:icon_selected_top="@mipmap/ic_refused_lend_checked"
-                        app:text_color_normal="#585858"
-                        app:text_color_selected="#F94F4F" />
+                        android:paddingBottom="@dimen/sw_24dp">
+
+                        <ImageView
+                            android:id="@+id/mInPaymentImageView"
+                            android:layout_width="@dimen/sw_40dp"
+                            android:layout_height="@dimen/sw_40dp"
+                            android:layout_gravity="center"
+                            app:icon_normal_top="@mipmap/ic_await_normal"
+                            app:icon_selected_top="@mipmap/ic_await_checked" />
+
+                        <com.ruffian.library.widget.RTextView
+                            android:id="@+id/mInPaymentTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/sw_11dp"
+                            android:layout_marginTop="@dimen/sw_11dp"
+
+                            android:text="Devolución\npendiente"
+                            android:textSize="@dimen/sw_13sp"
+                            app:text_color_normal="#585858"
+                            app:text_color_selected="#F98D4F" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/sw_29dp"
+                        android:paddingBottom="@dimen/sw_24dp">
+
+                        <ImageView
+                            android:id="@+id/mDeferredPaymentImageView"
+                            android:layout_width="@dimen/sw_40dp"
+                            android:layout_height="@dimen/sw_40dp"
+                            android:layout_gravity="center"
+                            app:icon_normal_top="@mipmap/ic_deferred_payment_normal"
+                            app:icon_selected_top="@mipmap/ic_deferred_payment_checked" />
+
+                        <com.ruffian.library.widget.RTextView
+                            android:id="@+id/mDeferredPaymentTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/sw_4dp"
+                            android:layout_marginTop="@dimen/sw_11dp"
+                            android:text="Atrasado\n0 Días"
+                            android:textSize="@dimen/sw_13sp"
+                            app:text_color_normal="#585858"
+                            app:text_color_selected="#F98D4F" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/sw_29dp"
+                        android:paddingBottom="@dimen/sw_24dp">
+
+                        <ImageView
+                            android:id="@+id/mRefusedLendImageView"
+                            android:layout_width="@dimen/sw_40dp"
+                            android:layout_height="@dimen/sw_40dp"
+                            android:layout_gravity="center" />
+
+                        <com.ruffian.library.widget.RTextView
+                            android:id="@+id/mRefusedLendTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginEnd="@dimen/sw_13dp"
+                            android:layout_marginTop="@dimen/sw_11dp"
+                            android:text="Préstamo\nfallido"
+                            android:textSize="@dimen/sw_13sp"
+                            app:text_color_normal="#585858"
+                            app:text_color_selected="#F94F4F" />
+                    </LinearLayout>
+
                 </com.ruffian.library.widget.RLinearLayout>
 
                 <com.ruffian.library.widget.RLinearLayout
@@ -157,6 +206,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/mOrderStateLayout">
 
                     <TextView
+                        android:id="@+id/mMonDeDeTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -205,6 +255,7 @@
                         android:visibility="gone">
 
                         <com.ruffian.library.widget.RTextView
+                            android:id="@+id/mDevYaTextView"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="214"
@@ -575,12 +626,14 @@
                         android:layout_marginStart="@dimen/sw_15dp"
                         android:layout_marginTop="@dimen/sw_13dp"
                         android:layout_marginEnd="@dimen/sw_15dp"
-                        app:background_normal="#f00"
+                        app:background_normal="#eee"
                         app:corner_radius="@dimen/sw_4dp">
 
                         <com.ruffian.library.widget.RImageView
+                            android:id="@+id/mImageViewBanner"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
                             app:corner_radius="@dimen/sw_4dp" />
                     </com.ruffian.library.widget.RFrameLayout>
                 </LinearLayout>
@@ -631,6 +684,7 @@
                     <com.ruffian.library.widget.RConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sw_13dp"
                         android:layout_marginStart="@dimen/sw_15dp"
                         android:layout_marginEnd="@dimen/sw_15dp"
                         android:paddingTop="@dimen/sw_22dp"
@@ -1214,13 +1268,16 @@
                             android:textSize="@dimen/sw_15sp" />
                     </com.ruffian.library.widget.RLinearLayout>
 
-                    <com.youth.banner.Banner
+                    <com.ruffian.library.widget.RImageView
+                        android:id="@+id/mFailedBannerImageView"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/sw_141dp"
                         android:layout_marginStart="@dimen/sw_15dp"
                         android:layout_marginTop="@dimen/sw_13dp"
+                        app:corner_radius="@dimen/sw_4dp"
+                        android:scaleType="centerCrop"
                         android:layout_marginEnd="@dimen/sw_15dp"
-                        android:background="#f00"
+                        android:background="#fff"
                         app:banner_radius="@dimen/sw_4dp" />
 
                     <Space

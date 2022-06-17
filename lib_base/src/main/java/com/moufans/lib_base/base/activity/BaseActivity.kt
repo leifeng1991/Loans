@@ -6,13 +6,11 @@ import android.text.TextUtils
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.databinding.ViewDataBinding
 import com.moufans.lib_base.R
-import com.moufans.lib_base.base.BaseViewModel
 import com.moufans.lib_base.base.recyclerview.EmptyView
 import com.moufans.lib_base.databinding.BaseActivityBaseBinding
 import com.moufans.lib_base.databinding.BaseLayoutHeaderBarBinding
@@ -121,19 +119,6 @@ abstract class BaseActivity<DB : ViewDataBinding> : AppCompatActivity(), BaseVie
     override fun onDestroy() {
         super.onDestroy()
         if (mLoadingDialogIsInit) mLoadingDialog?.gc()
-    }
-
-    inline fun <reified VM : BaseViewModel> initViewModel(isHandlerError: Boolean = true, isHandlerSuccess: Boolean = true): Lazy<VM> {
-        val vm = viewModels<VM>()
-        vm.value.mFailedCode.observe(this) {
-            if (isHandlerError)
-                handlerError(it)
-        }
-        vm.value.mSuccessDataBean.observe(this) {
-            if (isHandlerSuccess)
-                handlerSuccess(it)
-        }
-        return vm
     }
 
     /**

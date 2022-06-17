@@ -181,10 +181,11 @@ class IdentityInformationTwoActivity : AppBaseActivity<ActivityIdentityInformati
                 return
             }
 
-            if (mNumCvuStr != mConfNumCvuStr) {
-                if (isSubmit)
+            if (isSubmit) {
+                if (mNumCvuStr != mConfNumCvuStr) {
                     ToastUtil.showShort("Por favor complete la misma información")
-                return
+                    return
+                }
             }
 
             mDataBinding.mGigTextView.isEnabled = true
@@ -233,11 +234,11 @@ class IdentityInformationTwoActivity : AppBaseActivity<ActivityIdentityInformati
 
     private fun submit(bankType: String, bankName: String, bankCode: String, bankAccountNumber: String, expireDate: String, safeCvv: String) {
         val hashMap: java.util.HashMap<String, String> = BaseFormDataUtils.getBaseHasMap(1)
-        hashMap["cheapEnergeticCartoon"] = bankType
+        hashMap["maximumPinkCentDoubleCitizen"] = bankType
         if (bankType == "0") {
             // 银行卡
             hashMap["arcticItalianFireworksPinkSpoon"] = bankName
-            hashMap["steadyCertainTopCrop"] = bankName
+            hashMap["steadyCertainTopCrop"] = bankCode
             hashMap["manFairClockNovember"] = bankAccountNumber
             hashMap["suchBookstorePassportConversation"] = expireDate
             hashMap["basicCanHostess"] = safeCvv

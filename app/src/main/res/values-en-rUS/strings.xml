@@ -2,5 +2,5 @@
 <resources>
     <string name="app_name">Préstamo mío</string>
     <string name="register_title">Regresar</string>
-    <string name="setting_title">Cambiar idioma</string>
+    <string name="setting_title">Change Language</string>
 </resources>

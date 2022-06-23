@@ -5,6 +5,8 @@ interface AppConstants {
         const val USER_TOKEN = "userToken"
         const val USER_ID = "userId"
         const val USER_CODE = "userCode"
+        const val USER_PHONE = "userPhone"
         const val IS_FIRST_LAUNCH = "is_first_launch"
+        const val APP_INFO = "app_info"
     }
 }

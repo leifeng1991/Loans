@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">我的贷款</string>
     <string name="register_title">注册</string>
+    <string name="setting_title">设置语言</string>
 </resources>

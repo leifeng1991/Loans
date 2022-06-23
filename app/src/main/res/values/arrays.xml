@@ -25,6 +25,11 @@
         <item>#FF5555</item>
     </array>
 
+    <array name="home_card_six">
+        <item>#F97150</item>
+        <item>#FAA74B</item>
+    </array>
+
     <string-array name="app_week_string_array">
         <item>S</item>
         <item>M</item>

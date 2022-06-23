@@ -137,6 +137,7 @@ class LoginRegisterActivity : BaseActivity<ActivityLoginRegisterBinding>(), Text
             convertReqExecute({ appApi.login(hashMap) }, onSuccess = {
                 SharedPrefUtil.put(AppConstants.USER_TOKEN, it.mercifulAircraftAfricanHoneyDailySoil)
                 SharedPrefUtil.put(AppConstants.USER_ID, it.safeContinentGreetingDeepSatisfaction)
+                SharedPrefUtil.put(AppConstants.USER_PHONE, mPhone)
                 finish()
             }, onFailure = null, this@LoginRegisterActivity)
 

@@ -250,10 +250,16 @@ class IdentityInformationTwoActivity : AppBaseActivity<ActivityIdentityInformati
 
         lifecycleScope.launch {
             convertReqExecute({ appApi.loseCrowdedMeaning(hashMap) }, onSuccess = {
-                startActivity(LoadingActivity.newIntent(this@IdentityInformationTwoActivity))
+                if (mType == 0)
+                    startActivity(LoadingActivity.newIntent(this@IdentityInformationTwoActivity))
+                else
+                    finish()
             }, onFailure = { _, status, _ ->
                 if (status == 1000) {
-                    startActivity(LoadingActivity.newIntent(this@IdentityInformationTwoActivity))
+                    if (mType == 0)
+                        startActivity(LoadingActivity.newIntent(this@IdentityInformationTwoActivity))
+                    else
+                        finish()
                 }
             }, this@IdentityInformationTwoActivity)
 

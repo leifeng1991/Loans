@@ -17,6 +17,8 @@ import com.google.gson.Gson
 import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions
+import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.api.BaseFormDataUtils
+import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.api.ext.appApi
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.constants.AppConstants
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.databinding.ActivityMainBinding
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.activity.LoginRegisterActivity
@@ -25,6 +27,7 @@ import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.fragment.MineFragment
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.utils.SharedPrefUtil
 import com.moufans.lib_base.base.activity.BaseActivity
+import com.moufans.lib_base.ext.convertReqExecute
 import com.moufans.lib_base.utils.LogUtil
 import com.moufans.lib_base.utils.StatusBarUtil
 import kotlinx.coroutines.Dispatchers.IO
@@ -93,6 +96,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
             }
         })
+
+        getAppInfo()
     }
 
     private fun getTabItemView(index: Int): View {
@@ -113,6 +118,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             startActivity(LoginRegisterActivity.newIntent(this))
         else
             mFragmentTabHost?.currentTab = currentIndex
+    }
+
+    private fun getAppInfo() {
+        lifecycleScope.launch {
+            val hashMap: HashMap<String, String> = BaseFormDataUtils.getBaseHasMap()
+            convertReqExecute({ appApi.appInfo(hashMap) }, onSuccess = {
+                SharedPrefUtil.put(AppConstants.APP_INFO, Gson().toJson(it))
+            })
+        }
     }
 
     companion object {

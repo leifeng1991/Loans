@@ -26,6 +26,7 @@ import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.utils.CommonDialogUtil
 import com.moufans.lib_base.base.activity.BaseActivity
 import com.moufans.lib_base.ext.convertReqExecute
+import com.moufans.lib_base.utils.LogUtil
 import com.moufans.lib_base.utils.ToastUtil
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -186,12 +187,14 @@ class ContactInformationActivity : AppBaseActivity<ActivityContactInformationBin
                 ToastUtil.showShort("El número de teléfono es anormal, vuelva a ingresar")
             return
         }
-
+        LogUtil.e("==============================================111111")
         if (isSubmit) {
-            if (phoneTwo.length < 10)
+            if (phoneTwo.length < 10) {
                 ToastUtil.showShort("El número de teléfono es anormal, vuelva a ingresar")
-            return
+                return
+            }
         }
+        LogUtil.e("==============================================11111")
 
         val nameTwo = mDataBinding.mNomEditText2.text.toString()
         if (TextUtils.isEmpty(nameTwo)) {
@@ -199,12 +202,15 @@ class ContactInformationActivity : AppBaseActivity<ActivityContactInformationBin
                 ToastUtil.showShort("Por favor complete toda la información completamente")
             return
         }
-
+        LogUtil.e("==============================================1111")
         if (mRelationDataBeanTwo == null) {
             if (isSubmit)
                 ToastUtil.showShort("Por favor complete toda la información completamente")
             return
         }
+
+        LogUtil.e("==============================================11")
+
 
         if (isSubmit) {
             if (phoneOne == phoneTwo) {
@@ -213,10 +219,13 @@ class ContactInformationActivity : AppBaseActivity<ActivityContactInformationBin
             }
         }
 
+        LogUtil.e("==============================================1")
+
         mDataBinding.mGigTextView.isSelected = true
         mDataBinding.mGigTextView.isEnabled = true
 
         if (isSubmit) {
+            LogUtil.e("==============================================111")
             val hashMap: java.util.HashMap<String, String> = BaseFormDataUtils.getBaseHasMap(1)
             hashMap["smellyFaithTerm"] = phoneOne
             hashMap["germanToolShower"] = nameOne

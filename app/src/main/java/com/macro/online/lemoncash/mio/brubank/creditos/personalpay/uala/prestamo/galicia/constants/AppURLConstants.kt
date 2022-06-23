@@ -34,5 +34,17 @@ interface AppURLConstants {
         // 提交贷款信息
         const val CHALLENGING_ATMOSPHERE_RACE_HUGE_STEWARD = "challengingAtmosphere/raceHugeSteward"
 
+        // appInfo
+        const val VARIOUS_IRRIGATION_RELAY_FOND_SHORT = "variousIrrigation/relayFondShort"
+
+        // 还款链接
+        const val CHALLENGING_ATMOSPHERE_TRAP_TRUE_NEPHEW = "challengingAtmosphere/trapTrueNephew"
+
+        // 展期详情
+        const val CHALLENGING_ATMOSPHERE_BAN_LATEST_BRIDE = "challengingAtmosphere/banLatestBride"
+
+        const val VARIOUS_IRRIGATION_CLICK_PEACEFUL_DUSTBIN = "variousIrrigation/clickPeacefulDustbin"
+        const val NATURAL_NUT_BEG_RICH_BIT = "naturalNut/begRichBit"
+
     }
 }

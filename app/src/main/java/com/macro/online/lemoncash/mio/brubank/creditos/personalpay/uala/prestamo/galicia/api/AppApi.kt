@@ -82,5 +82,17 @@ interface AppApi {
     @POST(AppURLConstants.CHALLENGING_ATMOSPHERE_RACE_HUGE_STEWARD)
     suspend fun raceHugeSteward(@FieldMap map: Map<String, String>): BaseResp<DreamPhysicalRelationshipDataBean>
 
+    @FormUrlEncoded
+    @POST(AppURLConstants.VARIOUS_IRRIGATION_RELAY_FOND_SHORT)
+    suspend fun appInfo(@FieldMap map: Map<String, String>): BaseResp<AppInfoDataBean>
+
+    @FormUrlEncoded
+    @POST(AppURLConstants.CHALLENGING_ATMOSPHERE_BAN_LATEST_BRIDE)
+    suspend fun banLatestBride(@FieldMap map: Map<String, String>): BaseResp<String>
+
+    @FormUrlEncoded
+    @POST(AppURLConstants.NATURAL_NUT_BEG_RICH_BIT)
+    suspend fun begRichBit(@FieldMap map: Map<String, String>): BaseResp<MeDataBean>
+
 }
 

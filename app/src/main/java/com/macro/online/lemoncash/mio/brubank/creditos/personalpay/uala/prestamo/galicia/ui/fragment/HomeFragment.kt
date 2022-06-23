@@ -7,10 +7,12 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.google.gson.Gson
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.R
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.api.BaseFormDataUtils
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.api.ext.appApi
@@ -20,10 +22,12 @@ import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.databinding.LayoutHomeFirstBinding
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.databinding.LayoutHomeSecondBinding
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.activity.AmountChoiceActivity
+import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.activity.IdentityInformationTwoActivity
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.activity.LoginRegisterActivity
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.activity.PersonalInformationActivity
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.adapter.HomeCardAdapter
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.utils.CallUtils
+import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.utils.CommonDialogUtil
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.utils.SharedPrefUtil
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.utils.StringUtil
 import com.moufans.lib_base.base.fragment.HintRefreshFragment
@@ -33,6 +37,7 @@ import kotlinx.coroutines.launch
 
 
 class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
+    private var mHomeStatusDataBean: HomeStatusDataBean? = null
     private val mHomeCardAdapter by lazy {
         HomeCardAdapter()
     }
@@ -84,6 +89,12 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
                     0 -> {
                         statusOne(homeStatusDataBean, 1)
                     }
+                    1 -> {
+                        statusOne(homeStatusDataBean, 2)
+                    }
+                    else -> {
+                        statusOne(homeStatusDataBean, 0)
+                    }
                 }
 
             }
@@ -132,11 +143,16 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
 
             mHomeCarItemRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             val list = mutableListOf<String>().apply {
-                if (type == -1 || type == 0 || type == 2) {
+                if (type == -1 || type == 0) {
                     add("0")
                     add("1")
                     add("2")
                 } else if (type == 1) {
+                    add("3")
+                    add("4")
+                } else if (type == 2) {
+                    mTitleNameTextView.text = "¿Por qué elegir el Préstamo mío?"
+                    add("5")
                     add("3")
                     add("4")
                 }
@@ -145,21 +161,18 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
             mHomeCardAdapter.setList(list)
             // 客服电话
             mCallImageView.setOnClickListener {
-                CallUtils.showCallDialog(requireActivity())
+                CallUtils.showCallDialog(requireActivity() as AppCompatActivity)
             }
             // 申请贷款
             mApplyLayout.setOnClickListener {
                 if (TextUtils.isEmpty(SharedPrefUtil.get(AppConstants.USER_TOKEN, "")))
                     startActivity(LoginRegisterActivity.newIntent(requireContext()))
                 else
-                    startActivity(PersonalInformationActivity.newIntent(requireContext()))
-            }
-            // banner
-            mBannerView.setOnClickListener {
-
+                    startActivity(IdentityInformationTwoActivity.newIntent(requireContext()))
             }
 
             getBanner(mBannerView)
+
         }
 
 
@@ -176,6 +189,10 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
                     } else {
                         mBannerView.visibility = View.GONE
                     }
+
+                    mBannerView.setOnClickListener {
+                        CommonDialogUtil.showRecommendOtherProductsDialog(requireActivity())
+                    }
                 }, onFailure = null)
             }
 
@@ -186,6 +203,7 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
      * @param type 0:等待审核 1：处理中 2:还款中 3：延期还款 4：放款失败 5:拒绝放款
      */
     private fun statusTwo(type: Int = 0, bean: HomeStatusDataBean) {
+        mHomeStatusDataBean = bean
         mFragmentDataBinding.mRootLayout.removeAllViews()
         val mView = LayoutInflater.from(requireContext()).inflate(R.layout.layout_home_second, null)
         mFragmentDataBinding.mRootLayout.addView(mView)
@@ -193,7 +211,7 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
         dataBinding?.apply {
             // 客服电话
             mCallImageView.setOnClickListener {
-                CallUtils.showCallDialog(requireActivity())
+                CallUtils.showCallDialog(requireActivity() as AppCompatActivity)
             }
             mAwaitTextView.isSelected = (type == 0 || type == 1)
             mAwaitImageView.setImageResource(if (type == 0 || type == 1) R.mipmap.ic_await_checked else R.mipmap.ic_await_normal)
@@ -236,7 +254,15 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
                     mApplyMoneyTextView.text = AndroidSpan().drawRelativeSize("$", 0.625f).drawCommonSpan(StringUtil.parseMoney(bean.unfitTermCleverHat)).spanText
                     mApplyTimeTextView.text = "Fecha de pago de tu\n${bean.contentTeacherHappyGallon}"
                     mFecDePaTextView.text = "${bean.contentTeacherHappyGallon}"
-                    mMonDePreTextView.text = AndroidSpan().drawRelativeSize("$", 0.625f).drawCommonSpan(StringUtil.parseMoney(bean.unfitTermCleverHat)).spanText
+                    mMonDePreTextView.text = AndroidSpan().drawCommonSpan("$").drawCommonSpan(StringUtil.parseMoney(bean.unfitTermCleverHat)).spanText
+
+                    mDevYaTextView.setOnClickListener {
+                        mNestedScroollView.smoothScrollBy(0, 100000)
+                    }
+
+                    mProLonTextView.setOnClickListener {
+                        banLatestBride()
+                    }
                 }
                 3 -> {
                     mApplyLayout.visibility = View.VISIBLE
@@ -251,14 +277,22 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
                     mApplyMoneyTextView.text = AndroidSpan().drawRelativeSize("$", 0.625f).drawCommonSpan(StringUtil.parseMoney(bean.unfitTermCleverHat)).spanText
                     mApplyTimeTextView.text = "Fecha de pago de tu crédito\n${bean.contentTeacherHappyGallon}"
                     mDevYaTextView.text = "Pago la deuda ya"
-                    mJgContentTextView.text = AndroidSpan().drawCommonSpan("Tu crédito tiene ").drawForegroundColor("${bean.blueFriedClinic} Días",Color.parseColor("#F98D4F"))
+                    mJgContentTextView.text = AndroidSpan().drawCommonSpan("Tu crédito tiene ").drawForegroundColor("${bean.blueFriedClinic} Días", Color.parseColor("#F98D4F"))
                         .drawCommonSpan(" vencido, pague de inmediato. Si hay una situación de vencimiento maliciosa, presentaremos una denuncia en su contra a través de los canales legales.").spanText
+
+                    mDevYaTextView.setOnClickListener {
+                        mNestedScroollView.smoothScrollBy(0, 100000)
+                    }
+
+                    mProLonTextView.setOnClickListener {
+                        banLatestBride()
+                    }
                 }
                 4 -> {
                     mFailedLayout.visibility = View.VISIBLE
                     getBanner(mFailedBannerImageView)
                     mFailedActTextView.setOnClickListener {
-
+                        startActivity(IdentityInformationTwoActivity.newIntent(requireContext(), 1))
                     }
                 }
                 5 -> {
@@ -269,6 +303,20 @@ class HomeFragment : HintRefreshFragment<FragmentNewHomeBinding>() {
                     getBanner(mFailedBannerImageView)
                 }
             }
+        }
+    }
+
+    private fun banLatestBride() {
+        if (mHomeStatusDataBean == null)
+            return
+        lifecycleScope.launch {
+            val hashMap: HashMap<String, String> = BaseFormDataUtils.getBaseHasMap()
+            hashMap["popularMessyLeague"] = mHomeStatusDataBean!!.popularMessyLeague ?: ""
+//            hashMap["recentCoralChemicalGoldenElder"] = mHomeStatusDataBean!!.recentCoralChemicalGoldenElder ?: ""
+            convertReqExecute({ appApi.banLatestBride(hashMap) }, onSuccess = {
+                // 弹框
+                CommonDialogUtil.showDeferredPaymentDialog(requireActivity())
+            })
         }
     }
 

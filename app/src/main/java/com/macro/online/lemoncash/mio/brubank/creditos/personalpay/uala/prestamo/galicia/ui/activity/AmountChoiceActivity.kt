@@ -73,7 +73,7 @@ class AmountChoiceActivity : AppBaseActivity<ActivityAmountChoiceBinding>() {
                     mDataBinding.mFecDayTextView.text = mSelectDayAdapter.data[mSelectDayAdapter.mSelectPosition].day
                 }
             } else {
-                CommonDialogUtil.showCalendarDialog(this)
+//                CommonDialogUtil.showCalendarDialog(this)
             }
         }
     }

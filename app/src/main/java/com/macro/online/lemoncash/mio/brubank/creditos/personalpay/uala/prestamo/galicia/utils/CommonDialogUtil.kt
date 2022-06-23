@@ -1,6 +1,7 @@
 package com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.utils
 
 import android.R.attr.phoneNumber
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
@@ -16,9 +17,13 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
 import com.haibin.calendarview.Calendar
 import com.haibin.calendarview.CalendarView
+import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.MainActivity
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.R
+import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.api.rep.AppInfoDataBean
+import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.constants.AppConstants
 import com.macro.online.lemoncash.mio.brubank.creditos.personalpay.uala.prestamo.galicia.ui.adapter.RecommendOtherProductsAdapter
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -95,6 +100,7 @@ object CommonDialogUtil {
                 delay(1000)
                 if (10 - it - 1 == 0) {
                     dialogBuilder.dismiss()
+                    listener.onRightOrCenterButtonClick(dialogBuilder)
                 }
             }
         }
@@ -112,10 +118,12 @@ object CommonDialogUtil {
         return dialogBuilder.dialog
     }
 
-    fun showCallPhone(activity: Activity, phone: String): Dialog {
+    @SuppressLint("SetTextI18n") fun showCallPhone(activity: Activity): Dialog {
         val loadDataView = View.inflate(activity, R.layout.dialog_layout_call_phone, null)
         val mPhoneTextView = loadDataView.findViewById<TextView>(R.id.mPhoneTextView)
-        mPhoneTextView.text = "+54 111-111111"
+        val json = SharedPrefUtil.get(AppConstants.APP_INFO,"")
+        val bean = Gson().fromJson(json,AppInfoDataBean::class.java)
+        mPhoneTextView.text = "+54 ${bean.absentSwitzerlandConceitedGesture}"
 
         val dialogBuilder = DialogBuilder
             .create(activity)

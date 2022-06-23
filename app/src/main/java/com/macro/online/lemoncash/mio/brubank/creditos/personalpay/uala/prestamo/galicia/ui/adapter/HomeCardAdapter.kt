@@ -43,6 +43,12 @@ class HomeCardAdapter(layoutResId: Int = R.layout.item_layout_home_card, data: M
                             mCardIconImageView.setImageResource(R.mipmap.ic_home_card_five)
                             R.array.home_card_five
                         }
+                        "5" -> {
+                            mCardContentTextView.text = "Tasa de\naprobación\nde auditoría"
+                            mNumberTextView.text = "99%"
+                            mCardIconImageView.setImageResource(R.mipmap.tongguoshuai)
+                            R.array.home_card_six
+                        }
                         else -> {
                             R.array.home_card_fist
                         }
